@@ -1,0 +1,112 @@
+22:58:16.535 | [38mERROR[39m   | Task run 'Prepare data for Training-0' - Encountered exception during execution:
+Traceback (most recent call last):
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/engine.py", line 1655, in orchestrate_task_run
+    result = await call.aresult()
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/_internal/concurrency/calls.py", line 292, in aresult
+    return await asyncio.wrap_future(self.future)
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/_internal/concurrency/calls.py", line 316, in _run_sync
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/seacevedo/splatoon_ml_project/flows/train_model.py", line 50, in feature_engineering
+    X_train.to_parquet(os.path.join(artifact_data_path, artifact_date + "_X_train.parquet"))
+TypeError: unsupported operand type(s) for +: 'datetime.date' and 'str'
+22:58:16.622 | [38mERROR[39m   | Task run 'Prepare data for Training-0' - Finished in state [38mFailed[39m("Task run encountered an exception TypeError: unsupported operand type(s) for +: 'datetime.date' and 'str'")
+22:58:16.625 | [38mERROR[39m   | Flow run[35m 'smart-curassow'[39m - Encountered exception during execution:
+Traceback (most recent call last):
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/engine.py", line 769, in orchestrate_flow_run
+    result = await flow_call.aresult()
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/_internal/concurrency/calls.py", line 292, in aresult
+    return await asyncio.wrap_future(self.future)
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/_internal/concurrency/calls.py", line 316, in _run_sync
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/seacevedo/splatoon_ml_project/flows/main_flow.py", line 14, in run_pipeline
+    feature_engineering(df, wandb_project, wandb_entity, artifact_path)
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/tasks.py", line 505, in __call__
+    return enter_task_run_engine(
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/engine.py", line 1073, in enter_task_run_engine
+    return from_sync.wait_for_call_in_loop_thread(begin_run)
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/_internal/concurrency/api.py", line 243, in wait_for_call_in_loop_thread
+    return call.result()
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/_internal/concurrency/calls.py", line 283, in result
+    return self.future.result(timeout=timeout)
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/_internal/concurrency/calls.py", line 169, in result
+    return self.__get_result()
+  File "/home/seacevedo/miniconda3/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/_internal/concurrency/calls.py", line 346, in _run_async
+    result = await coro
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/engine.py", line 1238, in get_task_call_return_value
+    return await future._result()
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/futures.py", line 237, in _result
+    return await final_state.result(raise_on_failure=raise_on_failure, fetch=True)
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/states.py", line 91, in _get_state_result
+    raise await get_state_exception(state)
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/engine.py", line 1655, in orchestrate_task_run
+    result = await call.aresult()
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/_internal/concurrency/calls.py", line 292, in aresult
+    return await asyncio.wrap_future(self.future)
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/_internal/concurrency/calls.py", line 316, in _run_sync
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/seacevedo/splatoon_ml_project/flows/train_model.py", line 50, in feature_engineering
+    X_train.to_parquet(os.path.join(artifact_data_path, artifact_date + "_X_train.parquet"))
+TypeError: unsupported operand type(s) for +: 'datetime.date' and 'str'
+22:58:16.690 | [38mERROR[39m   | Flow run[35m 'smart-curassow'[39m - Finished in state [38mFailed[39m("Flow run encountered an exception. TypeError: unsupported operand type(s) for +: 'datetime.date' and 'str'")
+Traceback (most recent call last):
+  File "/home/seacevedo/splatoon_ml_project/flows/main_flow.py", line 28, in <module>
+    run_pipeline(data_path, wandb_project, wandb_entity, artifact_path, num_months, gcp_project_id, bigquery_dataset, bigquery_table)
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/flows.py", line 511, in __call__
+    return enter_flow_run_engine_from_flow_call(
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/engine.py", line 208, in enter_flow_run_engine_from_flow_call
+    retval = from_sync.wait_for_call_in_loop_thread(
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/_internal/concurrency/api.py", line 243, in wait_for_call_in_loop_thread
+    return call.result()
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/_internal/concurrency/calls.py", line 283, in result
+    return self.future.result(timeout=timeout)
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/_internal/concurrency/calls.py", line 169, in result
+    return self.__get_result()
+  File "/home/seacevedo/miniconda3/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/_internal/concurrency/calls.py", line 346, in _run_async
+    result = await coro
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/client/utilities.py", line 40, in with_injected_client
+    return await fn(*args, **kwargs)
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/engine.py", line 311, in create_then_begin_flow_run
+    return await state.result(fetch=True)
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/states.py", line 91, in _get_state_result
+    raise await get_state_exception(state)
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/engine.py", line 769, in orchestrate_flow_run
+    result = await flow_call.aresult()
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/_internal/concurrency/calls.py", line 292, in aresult
+    return await asyncio.wrap_future(self.future)
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/_internal/concurrency/calls.py", line 316, in _run_sync
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/seacevedo/splatoon_ml_project/flows/main_flow.py", line 14, in run_pipeline
+    feature_engineering(df, wandb_project, wandb_entity, artifact_path)
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/tasks.py", line 505, in __call__
+    return enter_task_run_engine(
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/engine.py", line 1073, in enter_task_run_engine
+    return from_sync.wait_for_call_in_loop_thread(begin_run)
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/_internal/concurrency/api.py", line 243, in wait_for_call_in_loop_thread
+    return call.result()
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/_internal/concurrency/calls.py", line 283, in result
+    return self.future.result(timeout=timeout)
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/_internal/concurrency/calls.py", line 169, in result
+    return self.__get_result()
+  File "/home/seacevedo/miniconda3/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/_internal/concurrency/calls.py", line 346, in _run_async
+    result = await coro
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/engine.py", line 1238, in get_task_call_return_value
+    return await future._result()
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/futures.py", line 237, in _result
+    return await final_state.result(raise_on_failure=raise_on_failure, fetch=True)
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/states.py", line 91, in _get_state_result
+    raise await get_state_exception(state)
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/engine.py", line 1655, in orchestrate_task_run
+    result = await call.aresult()
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/_internal/concurrency/calls.py", line 292, in aresult
+    return await asyncio.wrap_future(self.future)
+  File "/home/seacevedo/.local/lib/python3.10/site-packages/prefect/_internal/concurrency/calls.py", line 316, in _run_sync
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/seacevedo/splatoon_ml_project/flows/train_model.py", line 50, in feature_engineering
+    X_train.to_parquet(os.path.join(artifact_data_path, artifact_date + "_X_train.parquet"))
+TypeError: unsupported operand type(s) for +: 'datetime.date' and 'str'

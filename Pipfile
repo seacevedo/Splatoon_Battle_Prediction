@@ -1,0 +1,25 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+catboost = "==1.2"
+Flask = "==2.2.3"
+numpy = "==1.23.5"
+pandas = "==1.5.2"
+scikit_learn = "==1.3.0"
+evidently = "==0.3.2.1"
+prefect = "==2.10.13"
+prefect_gcp = "==0.2.4"
+psycopg = "==3.1.9"
+
+[dev-packages]
+pytest = "*"
+pylint = "==2.14.4"
+black = "*"
+isort = "*"
+pre-commit = "*"
+
+[requires]
+python_version = "3.10.9"
