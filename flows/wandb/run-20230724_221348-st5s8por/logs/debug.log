@@ -1,0 +1,34 @@
+2023-07-24 22:13:48,872 INFO    Thread-43 (_run_job):15019 [wandb_setup.py:_flush():76] Current SDK version is 0.15.6
+2023-07-24 22:13:48,872 INFO    Thread-43 (_run_job):15019 [wandb_setup.py:_flush():76] Configure stats pid to 15019
+2023-07-24 22:13:48,872 INFO    Thread-43 (_run_job):15019 [wandb_setup.py:_flush():76] Loading settings from /home/seacevedo/.config/wandb/settings
+2023-07-24 22:13:48,872 INFO    Thread-43 (_run_job):15019 [wandb_setup.py:_flush():76] Loading settings from /home/seacevedo/splatoon_ml_project/flows/wandb/settings
+2023-07-24 22:13:48,872 INFO    Thread-43 (_run_job):15019 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'entity': 'seacevedo', 'project': 'test_project', 'root_dir': '/home/seacevedo/splatoon_ml_project/flows', 'sweep_id': 'x6pp9926', 'run_id': 'st5s8por', 'sweep_param_path': '/home/seacevedo/splatoon_ml_project/flows/wandb/sweep-x6pp9926/config-st5s8por.yaml'}
+2023-07-24 22:13:48,873 INFO    Thread-43 (_run_job):15019 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2023-07-24 22:13:48,873 INFO    Thread-43 (_run_job):15019 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'flows/main_flow.py', 'program': '/home/seacevedo/splatoon_ml_project/flows/main_flow.py'}
+2023-07-24 22:13:48,873 INFO    Thread-43 (_run_job):15019 [wandb_init.py:_log_setup():507] Logging user logs to /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230724_221348-st5s8por/logs/debug.log
+2023-07-24 22:13:48,873 INFO    Thread-43 (_run_job):15019 [wandb_init.py:_log_setup():508] Logging internal logs to /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230724_221348-st5s8por/logs/debug-internal.log
+2023-07-24 22:13:48,873 INFO    Thread-43 (_run_job):15019 [wandb_init.py:init():547] calling init triggers
+2023-07-24 22:13:48,873 INFO    Thread-43 (_run_job):15019 [wandb_init.py:init():554] wandb.init called with sweep_config: {'bagging_temperature': 0.1230532718753465, 'l2_leaf_reg': 87, 'learning_rate': 0.049314063881630975, 'max_depth': 6}
+config: {}
+2023-07-24 22:13:48,873 INFO    Thread-43 (_run_job):15019 [wandb_init.py:init():596] starting backend
+2023-07-24 22:13:48,873 INFO    Thread-43 (_run_job):15019 [wandb_init.py:init():600] setting up manager
+2023-07-24 22:13:48,876 INFO    Thread-43 (_run_job):15019 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-07-24 22:13:48,876 INFO    Thread-43 (_run_job):15019 [wandb_init.py:init():606] backend started and connected
+2023-07-24 22:13:48,881 INFO    Thread-43 (_run_job):15019 [wandb_run.py:_config_callback():1282] config_cb None None {'bagging_temperature': 0.1230532718753465, 'l2_leaf_reg': 87, 'learning_rate': 0.049314063881630975, 'max_depth': 6}
+2023-07-24 22:13:48,882 INFO    Thread-43 (_run_job):15019 [wandb_init.py:init():697] updated telemetry
+2023-07-24 22:13:48,884 INFO    Thread-43 (_run_job):15019 [wandb_init.py:init():730] communicating run to backend with 60.0 second timeout
+2023-07-24 22:13:49,131 INFO    Thread-43 (_run_job):15019 [wandb_run.py:_on_init():2174] communicating current version
+2023-07-24 22:13:49,195 INFO    Thread-43 (_run_job):15019 [wandb_run.py:_on_init():2183] got version response
+2023-07-24 22:13:49,195 INFO    Thread-43 (_run_job):15019 [wandb_init.py:init():781] starting run threads in backend
+2023-07-24 22:13:50,089 INFO    Thread-43 (_run_job):15019 [wandb_run.py:_console_start():2153] atexit reg
+2023-07-24 22:13:50,089 INFO    Thread-43 (_run_job):15019 [wandb_run.py:_redirect():2008] redirect: wrap_raw
+2023-07-24 22:13:50,089 INFO    Thread-43 (_run_job):15019 [wandb_run.py:_redirect():2073] Wrapping output streams.
+2023-07-24 22:13:50,090 INFO    Thread-43 (_run_job):15019 [wandb_run.py:_redirect():2098] Redirects installed.
+2023-07-24 22:13:50,090 INFO    Thread-43 (_run_job):15019 [wandb_init.py:init():822] run started, returning control to user process
+2023-07-24 22:13:52,376 INFO    Thread-43 (_run_job):15019 [wandb_run.py:_finish():1888] finishing run seacevedo/test_project/st5s8por
+2023-07-24 22:13:52,376 INFO    Thread-43 (_run_job):15019 [wandb_run.py:_atexit_cleanup():2122] got exitcode: 0
+2023-07-24 22:13:52,376 INFO    Thread-43 (_run_job):15019 [wandb_run.py:_restore():2105] restore
+2023-07-24 22:13:52,376 INFO    Thread-43 (_run_job):15019 [wandb_run.py:_restore():2111] restore done
+2023-07-24 22:14:01,053 INFO    Thread-43 (_run_job):15019 [wandb_run.py:_footer_history_summary_info():3475] rendering history
+2023-07-24 22:14:01,053 INFO    Thread-43 (_run_job):15019 [wandb_run.py:_footer_history_summary_info():3507] rendering summary
+2023-07-24 22:14:01,055 INFO    Thread-43 (_run_job):15019 [wandb_run.py:_footer_sync_info():3434] logging synced files

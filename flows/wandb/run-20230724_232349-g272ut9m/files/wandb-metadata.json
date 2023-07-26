@@ -1,0 +1,134 @@
+{
+    "os": "Linux-5.10.16.3-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+    "python": "3.10.9",
+    "heartbeatAt": "2023-07-25T04:23:51.263583",
+    "startedAt": "2023-07-25T04:23:49.341536",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "../data",
+        "test_project",
+        "seacevedo",
+        "./artifacts",
+        "2",
+        "splatoon-ml-ops",
+        "splatoon_battle_data",
+        "battle_data"
+    ],
+    "state": "running",
+    "program": "/home/seacevedo/splatoon_ml_project/flows/main_flow.py",
+    "codePath": "flows/main_flow.py",
+    "git": {
+        "remote": "git@github.com:seacevedo/Splatoon_Battle_Prediction.git",
+        "commit": "5a308ffab0b87e8aa079ca7bceb1eef908b2fe9c"
+    },
+    "email": "saulacevedo2.0@gmail.com",
+    "root": "/home/seacevedo/splatoon_ml_project",
+    "host": "seacevedo",
+    "username": "seacevedo",
+    "executable": "/home/seacevedo/.local/share/virtualenvs/splatoon_ml_project-hLU1XzCA/bin/python",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 3293.8159999999993,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3293.816,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3293.816,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3293.816,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3293.816,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3293.816,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3293.816,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3293.816,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3293.816,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3293.816,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3293.816,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3293.816,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3293.816,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3293.816,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3293.816,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3293.816,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3293.816,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "total": 250.98248672485352,
+        "used": 99.34639358520508
+    },
+    "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 3060 Laptop GPU",
+            "memory_total": 6442450944
+        }
+    ],
+    "memory": {
+        "total": 7.395374298095703
+    }
+}

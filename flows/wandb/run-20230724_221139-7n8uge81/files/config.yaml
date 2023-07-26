@@ -1,0 +1,45 @@
+wandb_version: 1
+
+bagging_temperature:
+  desc: null
+  value: 0.39769198077065104
+l2_leaf_reg:
+  desc: null
+  value: 82
+learning_rate:
+  desc: null
+  value: 0.07646596428792382
+max_depth:
+  desc: null
+  value: 9
+_wandb:
+  desc: null
+  value:
+    python_version: 3.10.9
+    cli_version: 0.15.6
+    framework: catboost
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1690254699.573777
+    t:
+      1:
+      - 5
+      - 7
+      - 53
+      - 55
+      - 89
+      2:
+      - 5
+      - 7
+      - 53
+      - 55
+      - 89
+      3:
+      - 2
+      - 23
+      - 27
+      - 37
+      4: 3.10.9
+      5: 0.15.6
+      8:
+      - 5

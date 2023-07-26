@@ -1,0 +1,200 @@
+2023-07-24 21:06:05,126 INFO    StreamThr :552 [internal.py:wandb_internal():86] W&B internal server running at pid: 552, started at: 2023-07-24 21:06:05.124634
+2023-07-24 21:06:05,128 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: status
+2023-07-24 21:06:05,136 INFO    WriterThread:552 [datastore.py:open_for_write():85] open: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230724_210605-h1tc5jat/run-h1tc5jat.wandb
+2023-07-24 21:06:05,137 DEBUG   SenderThread:552 [sender.py:send():379] send: header
+2023-07-24 21:06:05,148 DEBUG   SenderThread:552 [sender.py:send():379] send: run
+2023-07-24 21:06:05,421 INFO    SenderThread:552 [dir_watcher.py:__init__():211] watching files in: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230724_210605-h1tc5jat/files
+2023-07-24 21:06:05,422 INFO    SenderThread:552 [sender.py:_start_run_threads():1122] run started: h1tc5jat with start time 1690250765.125436
+2023-07-24 21:06:05,422 DEBUG   SenderThread:552 [sender.py:send_request():406] send_request: summary_record
+2023-07-24 21:06:05,422 INFO    SenderThread:552 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-07-24 21:06:05,430 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: check_version
+2023-07-24 21:06:05,431 DEBUG   SenderThread:552 [sender.py:send_request():406] send_request: check_version
+2023-07-24 21:06:05,547 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: run_start
+2023-07-24 21:06:05,608 ERROR   HandlerThread:552 [gpu.py:is_available():381] Error initializing NVML: Not Supported
+2023-07-24 21:06:05,609 DEBUG   HandlerThread:552 [system_info.py:__init__():31] System info init
+2023-07-24 21:06:05,609 DEBUG   HandlerThread:552 [system_info.py:__init__():46] System info init done
+2023-07-24 21:06:05,609 INFO    HandlerThread:552 [system_monitor.py:start():181] Starting system monitor
+2023-07-24 21:06:05,609 INFO    SystemMonitor:552 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-07-24 21:06:05,609 INFO    HandlerThread:552 [system_monitor.py:probe():201] Collecting system info
+2023-07-24 21:06:05,611 INFO    SystemMonitor:552 [interfaces.py:start():190] Started cpu monitoring
+2023-07-24 21:06:05,611 INFO    SystemMonitor:552 [interfaces.py:start():190] Started disk monitoring
+2023-07-24 21:06:05,612 INFO    SystemMonitor:552 [interfaces.py:start():190] Started memory monitoring
+2023-07-24 21:06:05,613 INFO    SystemMonitor:552 [interfaces.py:start():190] Started network monitoring
+2023-07-24 21:06:05,618 DEBUG   HandlerThread:552 [system_info.py:probe():195] Probing system
+2023-07-24 21:06:05,651 DEBUG   HandlerThread:552 [system_info.py:_probe_git():180] Probing git
+2023-07-24 21:06:05,656 DEBUG   HandlerThread:552 [system_info.py:_probe_git():188] Probing git done
+2023-07-24 21:06:05,656 DEBUG   HandlerThread:552 [system_info.py:probe():240] Probing system done
+2023-07-24 21:06:05,656 DEBUG   HandlerThread:552 [system_monitor.py:probe():210] {'os': 'Linux-5.10.16.3-microsoft-standard-WSL2-x86_64-with-glibc2.35', 'python': '3.10.9', 'heartbeatAt': '2023-07-25T02:06:05.618452', 'startedAt': '2023-07-25T02:06:05.117237', 'docker': None, 'cuda': None, 'args': ('../data', 'test_project', 'seacevedo', './artifacts', '10', 'splatoon-ml-ops', 'splatoon_battle_data', 'battle_data'), 'state': 'running', 'program': '/home/seacevedo/splatoon_ml_project/flows/main_flow.py', 'codePath': 'flows/main_flow.py', 'git': {'remote': 'git@github.com:seacevedo/Splatoon_Battle_Prediction.git', 'commit': '5a308ffab0b87e8aa079ca7bceb1eef908b2fe9c'}, 'email': 'saulacevedo2.0@gmail.com', 'root': '/home/seacevedo/splatoon_ml_project', 'host': 'seacevedo', 'username': 'seacevedo', 'executable': '/home/seacevedo/.local/share/virtualenvs/splatoon_ml_project-hLU1XzCA/bin/python', 'cpu_count': 8, 'cpu_count_logical': 16, 'cpu_freq': {'current': 3293.8159999999993, 'min': 0.0, 'max': 0.0}, 'cpu_freq_per_core': [{'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}], 'disk': {'total': 250.98248672485352, 'used': 98.84530639648438}, 'memory': {'total': 7.395374298095703}}
+2023-07-24 21:06:05,656 INFO    HandlerThread:552 [system_monitor.py:probe():211] Finished collecting system info
+2023-07-24 21:06:05,656 INFO    HandlerThread:552 [system_monitor.py:probe():214] Publishing system info
+2023-07-24 21:06:05,656 DEBUG   HandlerThread:552 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-07-24 21:06:05,656 DEBUG   HandlerThread:552 [system_info.py:_save_pip():67] Saving pip packages done
+2023-07-24 21:06:05,657 INFO    HandlerThread:552 [system_monitor.py:probe():216] Finished publishing system info
+2023-07-24 21:06:05,660 DEBUG   SenderThread:552 [sender.py:send():379] send: files
+2023-07-24 21:06:05,660 INFO    SenderThread:552 [sender.py:_save_file():1376] saving file wandb-metadata.json with policy now
+2023-07-24 21:06:05,668 DEBUG   SenderThread:552 [sender.py:send():379] send: telemetry
+2023-07-24 21:06:05,674 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-24 21:06:05,675 DEBUG   SenderThread:552 [sender.py:send_request():406] send_request: stop_status
+2023-07-24 21:06:05,955 INFO    wandb-upload_0:552 [upload_job.py:push():131] Uploaded file /tmp/tmpae04jqjmwandb/p0kfyar6-wandb-metadata.json
+2023-07-24 21:06:06,423 INFO    Thread-12 :552 [dir_watcher.py:_on_file_created():272] file/dir created: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230724_210605-h1tc5jat/files/requirements.txt
+2023-07-24 21:06:06,424 INFO    Thread-12 :552 [dir_watcher.py:_on_file_created():272] file/dir created: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230724_210605-h1tc5jat/files/wandb-metadata.json
+2023-07-24 21:06:06,424 INFO    Thread-12 :552 [dir_watcher.py:_on_file_created():272] file/dir created: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230724_210605-h1tc5jat/files/wandb-summary.json
+2023-07-24 21:06:06,424 INFO    Thread-12 :552 [dir_watcher.py:_on_file_created():272] file/dir created: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230724_210605-h1tc5jat/files/output.log
+2023-07-24 21:06:06,440 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: log_artifact
+2023-07-24 21:06:06,440 DEBUG   SenderThread:552 [sender.py:send_request():406] send_request: log_artifact
+2023-07-24 21:06:07,122 INFO    wandb-upload_1:552 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpna3cg_wj
+2023-07-24 21:06:07,122 INFO    wandb-upload_2:552 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpx1md84pr
+2023-07-24 21:06:07,123 INFO    wandb-upload_4:552 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmp8dppd40l
+2023-07-24 21:06:07,123 INFO    wandb-upload_6:552 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpcoidtc1a
+2023-07-24 21:06:07,123 INFO    wandb-upload_8:552 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpiid1jrgw
+2023-07-24 21:06:07,123 INFO    wandb-upload_10:552 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpsqyqodkh
+2023-07-24 21:06:07,123 INFO    wandb-upload_12:552 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpop1cjf5o
+2023-07-24 21:06:07,124 INFO    wandb-upload_13:552 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpo3ln0pst
+2023-07-24 21:06:07,124 INFO    wandb-upload_14:552 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmp47z7emlr
+2023-07-24 21:06:07,124 INFO    wandb-upload_15:552 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpxbdlih6u
+2023-07-24 21:06:07,124 INFO    wandb-upload_16:552 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpewng2qlq
+2023-07-24 21:06:07,124 INFO    wandb-upload_17:552 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpzwp7ftr0
+2023-07-24 21:06:07,124 INFO    wandb-upload_18:552 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpp2nojd20
+2023-07-24 21:06:07,125 INFO    wandb-upload_3:552 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpw9sfxu9k
+2023-07-24 21:06:07,125 INFO    wandb-upload_5:552 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpsz3emxku
+2023-07-24 21:06:07,125 INFO    wandb-upload_11:552 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpcw_l0urw
+2023-07-24 21:06:07,126 INFO    wandb-upload_9:552 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmp7trspu_e
+2023-07-24 21:06:07,126 INFO    wandb-upload_0:552 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpy3j0qp1n
+2023-07-24 21:06:07,395 INFO    wandb-upload_21:552 [upload_job.py:push():89] Uploaded file /home/seacevedo/.local/share/wandb/artifacts/staging/tmp7uqi60i_
+2023-07-24 21:06:07,443 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: poll_exit
+2023-07-24 21:06:07,456 INFO    wandb-upload_19:552 [upload_job.py:push():89] Uploaded file /home/seacevedo/.local/share/wandb/artifacts/staging/tmpdcqbrepk
+2023-07-24 21:06:07,474 INFO    wandb-upload_22:552 [upload_job.py:push():89] Uploaded file /home/seacevedo/.local/share/wandb/artifacts/staging/tmpecosp9m_
+2023-07-24 21:06:07,586 INFO    wandb-upload_20:552 [upload_job.py:push():89] Uploaded file /home/seacevedo/.local/share/wandb/artifacts/staging/tmpo4j6g2_p
+2023-07-24 21:06:08,066 INFO    wandb-upload_7:552 [upload_job.py:push():89] Uploaded file /home/seacevedo/.local/share/wandb/artifacts/staging/tmpfoxle9b9
+2023-07-24 21:06:08,422 INFO    Thread-12 :552 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230724_210605-h1tc5jat/files/output.log
+2023-07-24 21:06:08,561 INFO    SenderThread:552 [sender.py:send_request_log_artifact():1442] logged artifact 2023-07-24_scaled_data - {'id': 'QXJ0aWZhY3Q6NTIxNTE0NTk3', 'digest': '4e92d2ea423644dfa66620a17efe75b7', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjg1MzQzMDEw', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NTIxNDc0NDU5', 'versionIndex': 1}}, 'version': 'latest'}
+2023-07-24 21:06:08,562 DEBUG   SenderThread:552 [sender.py:send():379] send: telemetry
+2023-07-24 21:06:08,562 DEBUG   SenderThread:552 [sender.py:send():379] send: exit
+2023-07-24 21:06:08,562 INFO    SenderThread:552 [sender.py:send_exit():584] handling exit code: 0
+2023-07-24 21:06:08,562 INFO    SenderThread:552 [sender.py:send_exit():586] handling runtime: 0
+2023-07-24 21:06:08,563 INFO    SenderThread:552 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-07-24 21:06:08,563 INFO    SenderThread:552 [sender.py:send_exit():592] send defer
+2023-07-24 21:06:08,563 DEBUG   SenderThread:552 [sender.py:send_request():406] send_request: poll_exit
+2023-07-24 21:06:08,563 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: defer
+2023-07-24 21:06:08,564 INFO    HandlerThread:552 [handler.py:handle_request_defer():170] handle defer: 0
+2023-07-24 21:06:08,564 DEBUG   SenderThread:552 [sender.py:send_request():406] send_request: defer
+2023-07-24 21:06:08,564 INFO    SenderThread:552 [sender.py:send_request_defer():608] handle sender defer: 0
+2023-07-24 21:06:08,564 INFO    SenderThread:552 [sender.py:transition_state():612] send defer: 1
+2023-07-24 21:06:08,565 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: defer
+2023-07-24 21:06:08,565 INFO    HandlerThread:552 [handler.py:handle_request_defer():170] handle defer: 1
+2023-07-24 21:06:08,565 DEBUG   SenderThread:552 [sender.py:send_request():406] send_request: defer
+2023-07-24 21:06:08,565 INFO    SenderThread:552 [sender.py:send_request_defer():608] handle sender defer: 1
+2023-07-24 21:06:08,565 INFO    SenderThread:552 [sender.py:transition_state():612] send defer: 2
+2023-07-24 21:06:08,565 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: defer
+2023-07-24 21:06:08,565 INFO    HandlerThread:552 [handler.py:handle_request_defer():170] handle defer: 2
+2023-07-24 21:06:08,565 INFO    HandlerThread:552 [system_monitor.py:finish():190] Stopping system monitor
+2023-07-24 21:06:08,566 DEBUG   SystemMonitor:552 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-07-24 21:06:08,566 DEBUG   SystemMonitor:552 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-07-24 21:06:08,566 DEBUG   SystemMonitor:552 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-07-24 21:06:08,567 INFO    HandlerThread:552 [interfaces.py:finish():202] Joined cpu monitor
+2023-07-24 21:06:08,567 INFO    HandlerThread:552 [interfaces.py:finish():202] Joined disk monitor
+2023-07-24 21:06:08,567 INFO    HandlerThread:552 [interfaces.py:finish():202] Joined memory monitor
+2023-07-24 21:06:08,567 INFO    HandlerThread:552 [interfaces.py:finish():202] Joined network monitor
+2023-07-24 21:06:08,568 DEBUG   SenderThread:552 [sender.py:send_request():406] send_request: defer
+2023-07-24 21:06:08,568 INFO    SenderThread:552 [sender.py:send_request_defer():608] handle sender defer: 2
+2023-07-24 21:06:08,568 INFO    SenderThread:552 [sender.py:transition_state():612] send defer: 3
+2023-07-24 21:06:08,568 DEBUG   SenderThread:552 [sender.py:send():379] send: stats
+2023-07-24 21:06:08,569 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: defer
+2023-07-24 21:06:08,569 INFO    HandlerThread:552 [handler.py:handle_request_defer():170] handle defer: 3
+2023-07-24 21:06:08,569 DEBUG   SenderThread:552 [sender.py:send_request():406] send_request: defer
+2023-07-24 21:06:08,569 INFO    SenderThread:552 [sender.py:send_request_defer():608] handle sender defer: 3
+2023-07-24 21:06:08,570 INFO    SenderThread:552 [sender.py:transition_state():612] send defer: 4
+2023-07-24 21:06:08,570 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: defer
+2023-07-24 21:06:08,570 INFO    HandlerThread:552 [handler.py:handle_request_defer():170] handle defer: 4
+2023-07-24 21:06:08,570 DEBUG   SenderThread:552 [sender.py:send_request():406] send_request: defer
+2023-07-24 21:06:08,570 INFO    SenderThread:552 [sender.py:send_request_defer():608] handle sender defer: 4
+2023-07-24 21:06:08,570 INFO    SenderThread:552 [sender.py:transition_state():612] send defer: 5
+2023-07-24 21:06:08,570 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: defer
+2023-07-24 21:06:08,570 INFO    HandlerThread:552 [handler.py:handle_request_defer():170] handle defer: 5
+2023-07-24 21:06:08,571 DEBUG   SenderThread:552 [sender.py:send():379] send: summary
+2023-07-24 21:06:08,571 INFO    SenderThread:552 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-07-24 21:06:08,571 DEBUG   SenderThread:552 [sender.py:send_request():406] send_request: defer
+2023-07-24 21:06:08,572 INFO    SenderThread:552 [sender.py:send_request_defer():608] handle sender defer: 5
+2023-07-24 21:06:08,572 INFO    SenderThread:552 [sender.py:transition_state():612] send defer: 6
+2023-07-24 21:06:08,572 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: defer
+2023-07-24 21:06:08,572 INFO    HandlerThread:552 [handler.py:handle_request_defer():170] handle defer: 6
+2023-07-24 21:06:08,572 DEBUG   SenderThread:552 [sender.py:send_request():406] send_request: defer
+2023-07-24 21:06:08,572 INFO    SenderThread:552 [sender.py:send_request_defer():608] handle sender defer: 6
+2023-07-24 21:06:08,577 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: status_report
+2023-07-24 21:06:08,694 INFO    SenderThread:552 [sender.py:transition_state():612] send defer: 7
+2023-07-24 21:06:08,694 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: defer
+2023-07-24 21:06:08,694 INFO    HandlerThread:552 [handler.py:handle_request_defer():170] handle defer: 7
+2023-07-24 21:06:08,695 DEBUG   SenderThread:552 [sender.py:send_request():406] send_request: defer
+2023-07-24 21:06:08,695 INFO    SenderThread:552 [sender.py:send_request_defer():608] handle sender defer: 7
+2023-07-24 21:06:09,423 INFO    Thread-12 :552 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230724_210605-h1tc5jat/files/config.yaml
+2023-07-24 21:06:09,423 INFO    Thread-12 :552 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230724_210605-h1tc5jat/files/wandb-summary.json
+2023-07-24 21:06:10,099 INFO    SenderThread:552 [sender.py:transition_state():612] send defer: 8
+2023-07-24 21:06:10,099 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: defer
+2023-07-24 21:06:10,099 INFO    HandlerThread:552 [handler.py:handle_request_defer():170] handle defer: 8
+2023-07-24 21:06:10,100 DEBUG   SenderThread:552 [sender.py:send_request():406] send_request: defer
+2023-07-24 21:06:10,100 INFO    SenderThread:552 [sender.py:send_request_defer():608] handle sender defer: 8
+2023-07-24 21:06:10,100 INFO    SenderThread:552 [job_builder.py:build():280] Attempting to build job artifact
+2023-07-24 21:06:10,100 INFO    SenderThread:552 [job_builder.py:_get_source_type():389] is repo sourced job
+2023-07-24 21:06:10,101 INFO    SenderThread:552 [job_builder.py:build():363] adding wandb-job metadata file
+2023-07-24 21:06:10,113 INFO    SenderThread:552 [sender.py:transition_state():612] send defer: 9
+2023-07-24 21:06:10,113 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: defer
+2023-07-24 21:06:10,113 INFO    HandlerThread:552 [handler.py:handle_request_defer():170] handle defer: 9
+2023-07-24 21:06:10,113 DEBUG   SenderThread:552 [sender.py:send():379] send: artifact
+2023-07-24 21:06:10,423 INFO    Thread-12 :552 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230724_210605-h1tc5jat/files/output.log
+2023-07-24 21:06:10,519 INFO    SenderThread:552 [sender.py:send_artifact():1476] sent artifact job-git_github.com_seacevedo_Splatoon_Battle_Prediction.git_flows_main_flow.py - {'id': 'QXJ0aWZhY3Q6NTIxNDcyOTM2', 'digest': 'af3dfee6a588c57504621ec77b9b2af1', 'state': 'COMMITTED', 'aliases': [{'artifactCollectionName': 'job-git_github.com_seacevedo_Splatoon_Battle_Prediction.git_flows_main_flow.py', 'alias': 'latest'}, {'artifactCollectionName': 'job-git_github.com_seacevedo_Splatoon_Battle_Prediction.git_flows_main_flow.py', 'alias': 'v0'}], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjg1MzQzMDM2', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NTIxNDczMzY1', 'versionIndex': 1}}, 'version': 'v0'}
+2023-07-24 21:06:10,519 DEBUG   SenderThread:552 [sender.py:send_request():406] send_request: defer
+2023-07-24 21:06:10,519 INFO    SenderThread:552 [sender.py:send_request_defer():608] handle sender defer: 9
+2023-07-24 21:06:10,519 INFO    SenderThread:552 [dir_watcher.py:finish():359] shutting down directory watcher
+2023-07-24 21:06:11,424 INFO    SenderThread:552 [dir_watcher.py:finish():389] scan: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230724_210605-h1tc5jat/files
+2023-07-24 21:06:11,424 INFO    SenderThread:552 [dir_watcher.py:finish():403] scan save: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230724_210605-h1tc5jat/files/output.log output.log
+2023-07-24 21:06:11,424 INFO    SenderThread:552 [dir_watcher.py:finish():403] scan save: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230724_210605-h1tc5jat/files/config.yaml config.yaml
+2023-07-24 21:06:11,425 INFO    SenderThread:552 [dir_watcher.py:finish():403] scan save: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230724_210605-h1tc5jat/files/wandb-metadata.json wandb-metadata.json
+2023-07-24 21:06:11,425 INFO    SenderThread:552 [dir_watcher.py:finish():403] scan save: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230724_210605-h1tc5jat/files/requirements.txt requirements.txt
+2023-07-24 21:06:11,426 INFO    SenderThread:552 [dir_watcher.py:finish():403] scan save: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230724_210605-h1tc5jat/files/wandb-summary.json wandb-summary.json
+2023-07-24 21:06:11,431 INFO    SenderThread:552 [sender.py:transition_state():612] send defer: 10
+2023-07-24 21:06:11,435 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: defer
+2023-07-24 21:06:11,437 INFO    HandlerThread:552 [handler.py:handle_request_defer():170] handle defer: 10
+2023-07-24 21:06:11,438 DEBUG   SenderThread:552 [sender.py:send_request():406] send_request: defer
+2023-07-24 21:06:11,438 INFO    SenderThread:552 [sender.py:send_request_defer():608] handle sender defer: 10
+2023-07-24 21:06:11,438 INFO    SenderThread:552 [file_pusher.py:finish():159] shutting down file pusher
+2023-07-24 21:06:11,630 INFO    wandb-upload_1:552 [upload_job.py:push():131] Uploaded file /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230724_210605-h1tc5jat/files/output.log
+2023-07-24 21:06:11,708 INFO    wandb-upload_2:552 [upload_job.py:push():131] Uploaded file /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230724_210605-h1tc5jat/files/config.yaml
+2023-07-24 21:06:11,831 INFO    wandb-upload_8:552 [upload_job.py:push():131] Uploaded file /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230724_210605-h1tc5jat/files/wandb-summary.json
+2023-07-24 21:06:11,889 INFO    wandb-upload_6:552 [upload_job.py:push():131] Uploaded file /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230724_210605-h1tc5jat/files/requirements.txt
+2023-07-24 21:06:12,090 INFO    Thread-11 (_thread_body):552 [sender.py:transition_state():612] send defer: 11
+2023-07-24 21:06:12,090 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: defer
+2023-07-24 21:06:12,090 INFO    HandlerThread:552 [handler.py:handle_request_defer():170] handle defer: 11
+2023-07-24 21:06:12,091 DEBUG   SenderThread:552 [sender.py:send_request():406] send_request: defer
+2023-07-24 21:06:12,091 INFO    SenderThread:552 [sender.py:send_request_defer():608] handle sender defer: 11
+2023-07-24 21:06:12,091 INFO    SenderThread:552 [file_pusher.py:join():164] waiting for file pusher
+2023-07-24 21:06:12,091 INFO    SenderThread:552 [sender.py:transition_state():612] send defer: 12
+2023-07-24 21:06:12,091 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: defer
+2023-07-24 21:06:12,091 INFO    HandlerThread:552 [handler.py:handle_request_defer():170] handle defer: 12
+2023-07-24 21:06:12,092 DEBUG   SenderThread:552 [sender.py:send_request():406] send_request: defer
+2023-07-24 21:06:12,092 INFO    SenderThread:552 [sender.py:send_request_defer():608] handle sender defer: 12
+2023-07-24 21:06:12,197 INFO    SenderThread:552 [sender.py:transition_state():612] send defer: 13
+2023-07-24 21:06:12,198 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: defer
+2023-07-24 21:06:12,198 INFO    HandlerThread:552 [handler.py:handle_request_defer():170] handle defer: 13
+2023-07-24 21:06:12,198 DEBUG   SenderThread:552 [sender.py:send_request():406] send_request: defer
+2023-07-24 21:06:12,198 INFO    SenderThread:552 [sender.py:send_request_defer():608] handle sender defer: 13
+2023-07-24 21:06:12,198 INFO    SenderThread:552 [sender.py:transition_state():612] send defer: 14
+2023-07-24 21:06:12,199 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: defer
+2023-07-24 21:06:12,199 INFO    HandlerThread:552 [handler.py:handle_request_defer():170] handle defer: 14
+2023-07-24 21:06:12,199 DEBUG   SenderThread:552 [sender.py:send():379] send: final
+2023-07-24 21:06:12,199 DEBUG   SenderThread:552 [sender.py:send():379] send: footer
+2023-07-24 21:06:12,199 DEBUG   SenderThread:552 [sender.py:send_request():406] send_request: defer
+2023-07-24 21:06:12,199 INFO    SenderThread:552 [sender.py:send_request_defer():608] handle sender defer: 14
+2023-07-24 21:06:12,200 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: poll_exit
+2023-07-24 21:06:12,201 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: server_info
+2023-07-24 21:06:12,201 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: get_summary
+2023-07-24 21:06:12,201 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: sampled_history
+2023-07-24 21:06:12,202 DEBUG   SenderThread:552 [sender.py:send_request():406] send_request: poll_exit
+2023-07-24 21:06:12,202 DEBUG   SenderThread:552 [sender.py:send_request():406] send_request: server_info
+2023-07-24 21:06:12,203 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: job_info
+2023-07-24 21:06:12,254 DEBUG   SenderThread:552 [sender.py:send_request():406] send_request: job_info
+2023-07-24 21:06:12,255 DEBUG   HandlerThread:552 [handler.py:handle_request():144] handle_request: shutdown
+2023-07-24 21:06:12,255 INFO    HandlerThread:552 [handler.py:finish():857] shutting down handler
+2023-07-24 21:06:13,204 INFO    WriterThread:552 [datastore.py:close():294] close: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230724_210605-h1tc5jat/run-h1tc5jat.wandb
+2023-07-24 21:06:13,254 INFO    SenderThread:552 [sender.py:finish():1552] shutting down sender
+2023-07-24 21:06:13,254 INFO    SenderThread:552 [file_pusher.py:finish():159] shutting down file pusher
+2023-07-24 21:06:13,254 INFO    SenderThread:552 [file_pusher.py:join():164] waiting for file pusher

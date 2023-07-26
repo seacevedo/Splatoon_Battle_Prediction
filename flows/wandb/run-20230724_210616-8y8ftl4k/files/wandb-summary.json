@@ -1,0 +1,1 @@
+{"learn-Accuracy": 0.848257206046316, "_timestamp": 1690250785.3210475, "learn-Logloss": 0.3468056695071258, "validation-Accuracy": 0.8507978285902287, "validation-Logloss": 0.3428448252154869, "validation-AUC": 0.9274230644945306, "iteration@metric-period-1": 1000, "_runtime": 8.65013861656189, "_step": 999, "_wandb": {"runtime": 8}}

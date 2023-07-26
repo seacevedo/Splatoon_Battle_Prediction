@@ -1,0 +1,219 @@
+2023-07-25 08:45:50,281 INFO    StreamThr :2756 [internal.py:wandb_internal():86] W&B internal server running at pid: 2756, started at: 2023-07-25 08:45:50.278849
+2023-07-25 08:45:50,283 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: status
+2023-07-25 08:45:50,290 INFO    WriterThread:2756 [datastore.py:open_for_write():85] open: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230725_084550-hrxl05a6/run-hrxl05a6.wandb
+2023-07-25 08:45:50,290 DEBUG   SenderThread:2756 [sender.py:send():379] send: header
+2023-07-25 08:45:50,295 DEBUG   SenderThread:2756 [sender.py:send():379] send: run
+2023-07-25 08:45:50,611 INFO    SenderThread:2756 [dir_watcher.py:__init__():211] watching files in: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230725_084550-hrxl05a6/files
+2023-07-25 08:45:50,611 INFO    SenderThread:2756 [sender.py:_start_run_threads():1122] run started: hrxl05a6 with start time 1690292750.278532
+2023-07-25 08:45:50,611 DEBUG   SenderThread:2756 [sender.py:send_request():406] send_request: summary_record
+2023-07-25 08:45:50,612 INFO    SenderThread:2756 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-07-25 08:45:50,619 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: check_version
+2023-07-25 08:45:50,620 DEBUG   SenderThread:2756 [sender.py:send_request():406] send_request: check_version
+2023-07-25 08:45:50,727 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: run_start
+2023-07-25 08:45:50,769 ERROR   HandlerThread:2756 [gpu.py:is_available():381] Error initializing NVML: Not Supported
+2023-07-25 08:45:50,770 DEBUG   HandlerThread:2756 [system_info.py:__init__():31] System info init
+2023-07-25 08:45:50,770 DEBUG   HandlerThread:2756 [system_info.py:__init__():46] System info init done
+2023-07-25 08:45:50,770 INFO    HandlerThread:2756 [system_monitor.py:start():181] Starting system monitor
+2023-07-25 08:45:50,770 INFO    SystemMonitor:2756 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-07-25 08:45:50,771 INFO    HandlerThread:2756 [system_monitor.py:probe():201] Collecting system info
+2023-07-25 08:45:50,772 INFO    SystemMonitor:2756 [interfaces.py:start():190] Started cpu monitoring
+2023-07-25 08:45:50,773 INFO    SystemMonitor:2756 [interfaces.py:start():190] Started disk monitoring
+2023-07-25 08:45:50,773 INFO    SystemMonitor:2756 [interfaces.py:start():190] Started memory monitoring
+2023-07-25 08:45:50,774 INFO    SystemMonitor:2756 [interfaces.py:start():190] Started network monitoring
+2023-07-25 08:45:50,780 DEBUG   HandlerThread:2756 [system_info.py:probe():195] Probing system
+2023-07-25 08:45:50,806 DEBUG   HandlerThread:2756 [system_info.py:_probe_git():180] Probing git
+2023-07-25 08:45:50,812 DEBUG   HandlerThread:2756 [system_info.py:_probe_git():188] Probing git done
+2023-07-25 08:45:50,812 DEBUG   HandlerThread:2756 [system_info.py:probe():240] Probing system done
+2023-07-25 08:45:50,812 DEBUG   HandlerThread:2756 [system_monitor.py:probe():210] {'os': 'Linux-5.10.16.3-microsoft-standard-WSL2-x86_64-with-glibc2.35', 'python': '3.10.9', 'heartbeatAt': '2023-07-25T13:45:50.780406', 'startedAt': '2023-07-25T13:45:50.270490', 'docker': None, 'cuda': None, 'args': ('../data', 'test_project', 'seacevedo', './artifacts', '2', 'splatoon-ml-ops', 'splatoon_battle_data', 'battle_data'), 'state': 'running', 'program': '/home/seacevedo/splatoon_ml_project/flows/main_flow.py', 'codePath': 'flows/main_flow.py', 'git': {'remote': 'git@github.com:seacevedo/Splatoon_Battle_Prediction.git', 'commit': '5a308ffab0b87e8aa079ca7bceb1eef908b2fe9c'}, 'email': 'saulacevedo2.0@gmail.com', 'root': '/home/seacevedo/splatoon_ml_project', 'host': 'seacevedo', 'username': 'seacevedo', 'executable': '/home/seacevedo/.local/share/virtualenvs/splatoon_ml_project-hLU1XzCA/bin/python', 'cpu_count': 8, 'cpu_count_logical': 16, 'cpu_freq': {'current': 3293.8159999999993, 'min': 0.0, 'max': 0.0}, 'cpu_freq_per_core': [{'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}, {'current': 3293.816, 'min': 0.0, 'max': 0.0}], 'disk': {'total': 250.98248672485352, 'used': 99.88932800292969}, 'memory': {'total': 7.395374298095703}}
+2023-07-25 08:45:50,812 INFO    HandlerThread:2756 [system_monitor.py:probe():211] Finished collecting system info
+2023-07-25 08:45:50,812 INFO    HandlerThread:2756 [system_monitor.py:probe():214] Publishing system info
+2023-07-25 08:45:50,812 DEBUG   HandlerThread:2756 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-07-25 08:45:50,812 DEBUG   HandlerThread:2756 [system_info.py:_save_pip():67] Saving pip packages done
+2023-07-25 08:45:50,813 INFO    HandlerThread:2756 [system_monitor.py:probe():216] Finished publishing system info
+2023-07-25 08:45:50,815 DEBUG   SenderThread:2756 [sender.py:send():379] send: files
+2023-07-25 08:45:50,815 INFO    SenderThread:2756 [sender.py:_save_file():1376] saving file wandb-metadata.json with policy now
+2023-07-25 08:45:50,822 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-25 08:45:50,822 DEBUG   SenderThread:2756 [sender.py:send_request():406] send_request: stop_status
+2023-07-25 08:45:50,972 DEBUG   SenderThread:2756 [sender.py:send():379] send: telemetry
+2023-07-25 08:45:51,188 INFO    wandb-upload_0:2756 [upload_job.py:push():131] Uploaded file /tmp/tmpltvgm1txwandb/mcoj6o7o-wandb-metadata.json
+2023-07-25 08:45:51,288 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: log_artifact
+2023-07-25 08:45:51,289 DEBUG   SenderThread:2756 [sender.py:send_request():406] send_request: log_artifact
+2023-07-25 08:45:51,614 INFO    Thread-12 :2756 [dir_watcher.py:_on_file_created():272] file/dir created: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230725_084550-hrxl05a6/files/wandb-metadata.json
+2023-07-25 08:45:51,614 INFO    Thread-12 :2756 [dir_watcher.py:_on_file_created():272] file/dir created: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230725_084550-hrxl05a6/files/requirements.txt
+2023-07-25 08:45:51,614 INFO    Thread-12 :2756 [dir_watcher.py:_on_file_created():272] file/dir created: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230725_084550-hrxl05a6/files/output.log
+2023-07-25 08:45:51,614 INFO    Thread-12 :2756 [dir_watcher.py:_on_file_created():272] file/dir created: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230725_084550-hrxl05a6/files/wandb-summary.json
+2023-07-25 08:45:52,292 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: poll_exit
+2023-07-25 08:45:52,664 INFO    wandb-upload_0:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpw51xmuze
+2023-07-25 08:45:52,665 INFO    wandb-upload_1:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpylzz0pzt
+2023-07-25 08:45:52,665 INFO    wandb-upload_2:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpdnur2wzf
+2023-07-25 08:45:52,665 INFO    wandb-upload_4:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpkznwexe5
+2023-07-25 08:45:52,665 INFO    wandb-upload_5:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpt_ohau58
+2023-07-25 08:45:52,665 INFO    wandb-upload_6:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmprcucj26u
+2023-07-25 08:45:52,665 INFO    wandb-upload_7:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpykcd7zu5
+2023-07-25 08:45:52,665 INFO    wandb-upload_8:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpde85rwbh
+2023-07-25 08:45:52,665 INFO    wandb-upload_9:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmp_7gfeiok
+2023-07-25 08:45:52,665 INFO    wandb-upload_10:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpti09jyee
+2023-07-25 08:45:52,666 INFO    wandb-upload_11:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpoa887u1m
+2023-07-25 08:45:52,666 INFO    wandb-upload_12:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpm15quyu9
+2023-07-25 08:45:52,666 INFO    wandb-upload_13:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpy4v6x_4o
+2023-07-25 08:45:52,666 INFO    wandb-upload_14:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpfvlzf2c6
+2023-07-25 08:45:52,666 INFO    wandb-upload_15:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpwsv9wgse
+2023-07-25 08:45:52,666 INFO    wandb-upload_16:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpdxdx7d5q
+2023-07-25 08:45:52,666 INFO    wandb-upload_17:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpi6xvp2ez
+2023-07-25 08:45:52,666 INFO    wandb-upload_18:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpjqgo3jlu
+2023-07-25 08:45:52,666 INFO    wandb-upload_19:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmptv4ay5tu
+2023-07-25 08:45:52,666 INFO    wandb-upload_20:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpgpisljx7
+2023-07-25 08:45:52,666 INFO    wandb-upload_21:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmppnyto1uf
+2023-07-25 08:45:52,666 INFO    wandb-upload_22:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpf93bpadg
+2023-07-25 08:45:52,667 INFO    wandb-upload_23:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmppddce7t6
+2023-07-25 08:45:52,667 INFO    wandb-upload_24:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmp7tcvvrlv
+2023-07-25 08:45:52,667 INFO    wandb-upload_25:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmphki6lz60
+2023-07-25 08:45:52,667 INFO    wandb-upload_26:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmp23joesfb
+2023-07-25 08:45:52,667 INFO    wandb-upload_27:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpjpr298o0
+2023-07-25 08:45:52,667 INFO    wandb-upload_28:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpe1h6co6h
+2023-07-25 08:45:52,667 INFO    wandb-upload_29:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpfkicas0x
+2023-07-25 08:45:52,667 INFO    wandb-upload_30:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpm5h7ln_h
+2023-07-25 08:45:52,667 INFO    wandb-upload_31:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpxx9iw476
+2023-07-25 08:45:52,667 INFO    wandb-upload_32:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpnix2tttu
+2023-07-25 08:45:52,667 INFO    wandb-upload_33:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpyy9b711p
+2023-07-25 08:45:52,667 INFO    wandb-upload_34:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmp0opzlkcq
+2023-07-25 08:45:52,668 INFO    wandb-upload_35:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpm741xe2d
+2023-07-25 08:45:52,668 INFO    wandb-upload_36:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpbpofoa9p
+2023-07-25 08:45:52,668 INFO    wandb-upload_37:2756 [upload_job.py:push():86] Skipped uploading /home/seacevedo/.local/share/wandb/artifacts/staging/tmpdbs4hy_9
+2023-07-25 08:45:52,997 INFO    wandb-upload_3:2756 [upload_job.py:push():89] Uploaded file /home/seacevedo/.local/share/wandb/artifacts/staging/tmpfb87u679
+2023-07-25 08:45:53,001 INFO    wandb-upload_40:2756 [upload_job.py:push():89] Uploaded file /home/seacevedo/.local/share/wandb/artifacts/staging/tmpu87l1i45
+2023-07-25 08:45:53,010 INFO    wandb-upload_38:2756 [upload_job.py:push():89] Uploaded file /home/seacevedo/.local/share/wandb/artifacts/staging/tmpnssimqka
+2023-07-25 08:45:53,028 INFO    wandb-upload_41:2756 [upload_job.py:push():89] Uploaded file /home/seacevedo/.local/share/wandb/artifacts/staging/tmpf9_qg0cy
+2023-07-25 08:45:53,063 INFO    wandb-upload_39:2756 [upload_job.py:push():89] Uploaded file /home/seacevedo/.local/share/wandb/artifacts/staging/tmpyqvuug0y
+2023-07-25 08:45:53,614 INFO    Thread-12 :2756 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230725_084550-hrxl05a6/files/output.log
+2023-07-25 08:45:53,803 INFO    SenderThread:2756 [sender.py:send_request_log_artifact():1442] logged artifact 2023-07-25_scaled_data - {'id': 'QXJ0aWZhY3Q6NTIyMjYxNTAw', 'digest': '5333350ee8b664510e7e43cc5876002a', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjg1NDg3NjA4', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NTIyMjU2NTA0', 'versionIndex': 0}}, 'version': 'latest'}
+2023-07-25 08:45:53,803 DEBUG   SenderThread:2756 [sender.py:send():379] send: telemetry
+2023-07-25 08:45:53,803 DEBUG   SenderThread:2756 [sender.py:send():379] send: exit
+2023-07-25 08:45:53,803 INFO    SenderThread:2756 [sender.py:send_exit():584] handling exit code: 0
+2023-07-25 08:45:53,804 INFO    SenderThread:2756 [sender.py:send_exit():586] handling runtime: 0
+2023-07-25 08:45:53,805 INFO    SenderThread:2756 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-07-25 08:45:53,805 INFO    SenderThread:2756 [sender.py:send_exit():592] send defer
+2023-07-25 08:45:53,805 DEBUG   SenderThread:2756 [sender.py:send_request():406] send_request: poll_exit
+2023-07-25 08:45:53,805 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: defer
+2023-07-25 08:45:53,806 INFO    HandlerThread:2756 [handler.py:handle_request_defer():170] handle defer: 0
+2023-07-25 08:45:53,806 DEBUG   SenderThread:2756 [sender.py:send_request():406] send_request: defer
+2023-07-25 08:45:53,806 INFO    SenderThread:2756 [sender.py:send_request_defer():608] handle sender defer: 0
+2023-07-25 08:45:53,807 INFO    SenderThread:2756 [sender.py:transition_state():612] send defer: 1
+2023-07-25 08:45:53,807 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: defer
+2023-07-25 08:45:53,807 INFO    HandlerThread:2756 [handler.py:handle_request_defer():170] handle defer: 1
+2023-07-25 08:45:53,807 DEBUG   SenderThread:2756 [sender.py:send_request():406] send_request: defer
+2023-07-25 08:45:53,807 INFO    SenderThread:2756 [sender.py:send_request_defer():608] handle sender defer: 1
+2023-07-25 08:45:53,807 INFO    SenderThread:2756 [sender.py:transition_state():612] send defer: 2
+2023-07-25 08:45:53,807 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: defer
+2023-07-25 08:45:53,807 INFO    HandlerThread:2756 [handler.py:handle_request_defer():170] handle defer: 2
+2023-07-25 08:45:53,808 INFO    HandlerThread:2756 [system_monitor.py:finish():190] Stopping system monitor
+2023-07-25 08:45:53,808 DEBUG   SystemMonitor:2756 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-07-25 08:45:53,808 DEBUG   SystemMonitor:2756 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-07-25 08:45:53,808 DEBUG   SystemMonitor:2756 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-07-25 08:45:53,809 INFO    HandlerThread:2756 [interfaces.py:finish():202] Joined cpu monitor
+2023-07-25 08:45:53,809 INFO    HandlerThread:2756 [interfaces.py:finish():202] Joined disk monitor
+2023-07-25 08:45:53,809 INFO    HandlerThread:2756 [interfaces.py:finish():202] Joined memory monitor
+2023-07-25 08:45:53,809 INFO    HandlerThread:2756 [interfaces.py:finish():202] Joined network monitor
+2023-07-25 08:45:53,809 DEBUG   SenderThread:2756 [sender.py:send_request():406] send_request: defer
+2023-07-25 08:45:53,809 INFO    SenderThread:2756 [sender.py:send_request_defer():608] handle sender defer: 2
+2023-07-25 08:45:53,810 INFO    SenderThread:2756 [sender.py:transition_state():612] send defer: 3
+2023-07-25 08:45:53,810 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: defer
+2023-07-25 08:45:53,810 INFO    HandlerThread:2756 [handler.py:handle_request_defer():170] handle defer: 3
+2023-07-25 08:45:53,810 DEBUG   SenderThread:2756 [sender.py:send_request():406] send_request: defer
+2023-07-25 08:45:53,810 INFO    SenderThread:2756 [sender.py:send_request_defer():608] handle sender defer: 3
+2023-07-25 08:45:53,810 INFO    SenderThread:2756 [sender.py:transition_state():612] send defer: 4
+2023-07-25 08:45:53,810 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: defer
+2023-07-25 08:45:53,810 INFO    HandlerThread:2756 [handler.py:handle_request_defer():170] handle defer: 4
+2023-07-25 08:45:53,811 DEBUG   SenderThread:2756 [sender.py:send_request():406] send_request: defer
+2023-07-25 08:45:53,811 INFO    SenderThread:2756 [sender.py:send_request_defer():608] handle sender defer: 4
+2023-07-25 08:45:53,811 INFO    SenderThread:2756 [sender.py:transition_state():612] send defer: 5
+2023-07-25 08:45:53,811 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: defer
+2023-07-25 08:45:53,811 INFO    HandlerThread:2756 [handler.py:handle_request_defer():170] handle defer: 5
+2023-07-25 08:45:53,812 DEBUG   SenderThread:2756 [sender.py:send():379] send: summary
+2023-07-25 08:45:53,812 INFO    SenderThread:2756 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-07-25 08:45:53,812 DEBUG   SenderThread:2756 [sender.py:send_request():406] send_request: defer
+2023-07-25 08:45:53,812 INFO    SenderThread:2756 [sender.py:send_request_defer():608] handle sender defer: 5
+2023-07-25 08:45:53,812 INFO    SenderThread:2756 [sender.py:transition_state():612] send defer: 6
+2023-07-25 08:45:53,812 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: defer
+2023-07-25 08:45:53,813 INFO    HandlerThread:2756 [handler.py:handle_request_defer():170] handle defer: 6
+2023-07-25 08:45:53,813 DEBUG   SenderThread:2756 [sender.py:send_request():406] send_request: defer
+2023-07-25 08:45:53,813 INFO    SenderThread:2756 [sender.py:send_request_defer():608] handle sender defer: 6
+2023-07-25 08:45:53,817 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: status_report
+2023-07-25 08:45:53,933 INFO    SenderThread:2756 [sender.py:transition_state():612] send defer: 7
+2023-07-25 08:45:53,933 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: defer
+2023-07-25 08:45:53,933 INFO    HandlerThread:2756 [handler.py:handle_request_defer():170] handle defer: 7
+2023-07-25 08:45:53,934 DEBUG   SenderThread:2756 [sender.py:send_request():406] send_request: defer
+2023-07-25 08:45:53,934 INFO    SenderThread:2756 [sender.py:send_request_defer():608] handle sender defer: 7
+2023-07-25 08:45:54,614 INFO    Thread-12 :2756 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230725_084550-hrxl05a6/files/config.yaml
+2023-07-25 08:45:54,615 INFO    Thread-12 :2756 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230725_084550-hrxl05a6/files/wandb-summary.json
+2023-07-25 08:45:54,999 INFO    SenderThread:2756 [sender.py:transition_state():612] send defer: 8
+2023-07-25 08:45:54,999 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: defer
+2023-07-25 08:45:54,999 INFO    HandlerThread:2756 [handler.py:handle_request_defer():170] handle defer: 8
+2023-07-25 08:45:55,000 DEBUG   SenderThread:2756 [sender.py:send_request():406] send_request: defer
+2023-07-25 08:45:55,000 INFO    SenderThread:2756 [sender.py:send_request_defer():608] handle sender defer: 8
+2023-07-25 08:45:55,000 INFO    SenderThread:2756 [job_builder.py:build():280] Attempting to build job artifact
+2023-07-25 08:45:55,000 INFO    SenderThread:2756 [job_builder.py:_get_source_type():389] is repo sourced job
+2023-07-25 08:45:55,001 INFO    SenderThread:2756 [job_builder.py:build():363] adding wandb-job metadata file
+2023-07-25 08:45:55,017 INFO    SenderThread:2756 [sender.py:transition_state():612] send defer: 9
+2023-07-25 08:45:55,018 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: defer
+2023-07-25 08:45:55,018 INFO    HandlerThread:2756 [handler.py:handle_request_defer():170] handle defer: 9
+2023-07-25 08:45:55,018 DEBUG   SenderThread:2756 [sender.py:send():379] send: artifact
+2023-07-25 08:45:55,615 INFO    Thread-12 :2756 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230725_084550-hrxl05a6/files/output.log
+2023-07-25 08:45:55,694 INFO    SenderThread:2756 [sender.py:send_artifact():1476] sent artifact job-git_github.com_seacevedo_Splatoon_Battle_Prediction.git_flows_main_flow.py - {'id': 'QXJ0aWZhY3Q6NTIxNTQ0NTAy', 'digest': 'af3187bbcf3a38765cf7b5c1fda9ac52', 'state': 'COMMITTED', 'aliases': [{'artifactCollectionName': 'job-git_github.com_seacevedo_Splatoon_Battle_Prediction.git_flows_main_flow.py', 'alias': 'latest'}, {'artifactCollectionName': 'job-git_github.com_seacevedo_Splatoon_Battle_Prediction.git_flows_main_flow.py', 'alias': 'v2'}], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjg1MzQzMDM2', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NTIxNTQ0ODEx', 'versionIndex': 3}}, 'version': 'v2'}
+2023-07-25 08:45:55,695 DEBUG   SenderThread:2756 [sender.py:send_request():406] send_request: defer
+2023-07-25 08:45:55,695 INFO    SenderThread:2756 [sender.py:send_request_defer():608] handle sender defer: 9
+2023-07-25 08:45:55,695 INFO    SenderThread:2756 [dir_watcher.py:finish():359] shutting down directory watcher
+2023-07-25 08:45:56,617 INFO    SenderThread:2756 [dir_watcher.py:finish():389] scan: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230725_084550-hrxl05a6/files
+2023-07-25 08:45:56,618 INFO    SenderThread:2756 [dir_watcher.py:finish():403] scan save: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230725_084550-hrxl05a6/files/output.log output.log
+2023-07-25 08:45:56,618 INFO    SenderThread:2756 [dir_watcher.py:finish():403] scan save: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230725_084550-hrxl05a6/files/config.yaml config.yaml
+2023-07-25 08:45:56,618 INFO    SenderThread:2756 [dir_watcher.py:finish():403] scan save: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230725_084550-hrxl05a6/files/wandb-metadata.json wandb-metadata.json
+2023-07-25 08:45:56,618 INFO    SenderThread:2756 [dir_watcher.py:finish():403] scan save: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230725_084550-hrxl05a6/files/requirements.txt requirements.txt
+2023-07-25 08:45:56,618 INFO    SenderThread:2756 [dir_watcher.py:finish():403] scan save: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230725_084550-hrxl05a6/files/wandb-summary.json wandb-summary.json
+2023-07-25 08:45:56,618 INFO    SenderThread:2756 [sender.py:transition_state():612] send defer: 10
+2023-07-25 08:45:56,619 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: defer
+2023-07-25 08:45:56,619 INFO    HandlerThread:2756 [handler.py:handle_request_defer():170] handle defer: 10
+2023-07-25 08:45:56,622 DEBUG   SenderThread:2756 [sender.py:send_request():406] send_request: defer
+2023-07-25 08:45:56,622 INFO    SenderThread:2756 [sender.py:send_request_defer():608] handle sender defer: 10
+2023-07-25 08:45:56,622 INFO    SenderThread:2756 [file_pusher.py:finish():159] shutting down file pusher
+2023-07-25 08:45:56,855 INFO    wandb-upload_0:2756 [upload_job.py:push():131] Uploaded file /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230725_084550-hrxl05a6/files/output.log
+2023-07-25 08:45:56,927 INFO    wandb-upload_2:2756 [upload_job.py:push():131] Uploaded file /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230725_084550-hrxl05a6/files/config.yaml
+2023-07-25 08:45:57,010 INFO    wandb-upload_4:2756 [upload_job.py:push():131] Uploaded file /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230725_084550-hrxl05a6/files/requirements.txt
+2023-07-25 08:45:57,068 INFO    wandb-upload_5:2756 [upload_job.py:push():131] Uploaded file /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230725_084550-hrxl05a6/files/wandb-summary.json
+2023-07-25 08:45:57,269 INFO    Thread-11 (_thread_body):2756 [sender.py:transition_state():612] send defer: 11
+2023-07-25 08:45:57,270 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: defer
+2023-07-25 08:45:57,270 INFO    HandlerThread:2756 [handler.py:handle_request_defer():170] handle defer: 11
+2023-07-25 08:45:57,271 DEBUG   SenderThread:2756 [sender.py:send_request():406] send_request: defer
+2023-07-25 08:45:57,271 INFO    SenderThread:2756 [sender.py:send_request_defer():608] handle sender defer: 11
+2023-07-25 08:45:57,271 INFO    SenderThread:2756 [file_pusher.py:join():164] waiting for file pusher
+2023-07-25 08:45:57,271 INFO    SenderThread:2756 [sender.py:transition_state():612] send defer: 12
+2023-07-25 08:45:57,272 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: defer
+2023-07-25 08:45:57,272 INFO    HandlerThread:2756 [handler.py:handle_request_defer():170] handle defer: 12
+2023-07-25 08:45:57,272 DEBUG   SenderThread:2756 [sender.py:send_request():406] send_request: defer
+2023-07-25 08:45:57,272 INFO    SenderThread:2756 [sender.py:send_request_defer():608] handle sender defer: 12
+2023-07-25 08:45:57,295 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: keepalive
+2023-07-25 08:45:57,373 INFO    SenderThread:2756 [sender.py:transition_state():612] send defer: 13
+2023-07-25 08:45:57,373 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: defer
+2023-07-25 08:45:57,373 INFO    HandlerThread:2756 [handler.py:handle_request_defer():170] handle defer: 13
+2023-07-25 08:45:57,374 DEBUG   SenderThread:2756 [sender.py:send_request():406] send_request: defer
+2023-07-25 08:45:57,374 INFO    SenderThread:2756 [sender.py:send_request_defer():608] handle sender defer: 13
+2023-07-25 08:45:57,374 INFO    SenderThread:2756 [sender.py:transition_state():612] send defer: 14
+2023-07-25 08:45:57,374 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: defer
+2023-07-25 08:45:57,375 INFO    HandlerThread:2756 [handler.py:handle_request_defer():170] handle defer: 14
+2023-07-25 08:45:57,375 DEBUG   SenderThread:2756 [sender.py:send():379] send: final
+2023-07-25 08:45:57,375 DEBUG   SenderThread:2756 [sender.py:send():379] send: footer
+2023-07-25 08:45:57,375 DEBUG   SenderThread:2756 [sender.py:send_request():406] send_request: defer
+2023-07-25 08:45:57,375 INFO    SenderThread:2756 [sender.py:send_request_defer():608] handle sender defer: 14
+2023-07-25 08:45:57,376 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: poll_exit
+2023-07-25 08:45:57,377 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: server_info
+2023-07-25 08:45:57,377 DEBUG   SenderThread:2756 [sender.py:send_request():406] send_request: poll_exit
+2023-07-25 08:45:57,378 DEBUG   SenderThread:2756 [sender.py:send_request():406] send_request: server_info
+2023-07-25 08:45:57,379 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: get_summary
+2023-07-25 08:45:57,379 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: sampled_history
+2023-07-25 08:45:57,380 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: job_info
+2023-07-25 08:45:57,428 DEBUG   SenderThread:2756 [sender.py:send_request():406] send_request: job_info
+2023-07-25 08:45:57,429 DEBUG   HandlerThread:2756 [handler.py:handle_request():144] handle_request: shutdown
+2023-07-25 08:45:57,429 INFO    HandlerThread:2756 [handler.py:finish():857] shutting down handler
+2023-07-25 08:45:58,381 INFO    WriterThread:2756 [datastore.py:close():294] close: /home/seacevedo/splatoon_ml_project/flows/wandb/run-20230725_084550-hrxl05a6/run-hrxl05a6.wandb
+2023-07-25 08:45:58,429 INFO    SenderThread:2756 [sender.py:finish():1552] shutting down sender
+2023-07-25 08:45:58,429 INFO    SenderThread:2756 [file_pusher.py:finish():159] shutting down file pusher
+2023-07-25 08:45:58,429 INFO    SenderThread:2756 [file_pusher.py:join():164] waiting for file pusher

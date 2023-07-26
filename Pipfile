@@ -11,8 +11,13 @@ pandas = "==1.5.2"
 scikit_learn = "==1.3.0"
 evidently = "==0.3.2.1"
 prefect = "==2.10.13"
-prefect_gcp = "==0.2.4"
+prefect_gcp = {extras = ["cloud_storage", "bigquery"], version = "==0.2.4"}
 psycopg = "==3.1.9"
+psycopg2-binary = "*"
+db-dtypes = "*"
+wandb = "*"
+psycopg-binary = "*"
+google-cloud-storage = "*"
 
 [dev-packages]
 pytest = "*"
