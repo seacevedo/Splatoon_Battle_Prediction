@@ -30,4 +30,4 @@ jobs:
         - name: TF plan
           working-directory: 'infrastructure/'
           run: |
-            export TF_VAR_SERVICE_ACCOUNT_FILE_PATH="$GCS_CREDS_JSON" & terraform init & terraform plan --var-file vars/vars.tfvars
+            terraform init & terraform plan --var-file vars/vars.tfvars --var "VAR_SERVICE_ACCOUNT_FILE_PATH="$GCS_CREDS_JSON""
