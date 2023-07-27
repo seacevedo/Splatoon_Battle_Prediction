@@ -1,7 +1,3 @@
-if [[ -z "${GITHUB_ACTIONS}" ]]; then
-  cd "$(dirname "$0")"
-fi
-
 cd ./integration_files/
 
 docker build -t splatoon-winner-prediction:v0 .
