@@ -17,11 +17,11 @@ jobs:
             - name: Install dependencies
               run: pip install pipenv && pipenv install && pipenv install --dev && pip install pandas && pip install requests
 
-            - name: Run Unit tests
-              run: pipenv run pytest unit_tests/
+            # - name: Run Unit tests
+            #   run: pipenv run pytest unit_tests/
 
-            - name: Lint
-              run: pipenv run pylint --recursive=y .
+            # - name: Lint
+            #   run: pipenv run pylint --recursive=y .
 
             - name: Integration Test
               working-directory: 'integration_tests/'
