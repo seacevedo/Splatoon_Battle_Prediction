@@ -1,40 +1,40 @@
-name: CD-Deploy
-on:
-    push:
-        branches:
-            - 'main'
+# name: CD-Deploy
+# on:
+#     push:
+#         branches:
+#             - 'main'
 
-jobs:
-    build-push-deploy:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Check out repo
-              uses: actions/checkout@v3
-            - name: auth
-              id: auth
-              uses: 'google-github-actions/auth@v1'
-              with:
-                credentials_json: '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}'
+# jobs:
+#     build-push-deploy:
+#         runs-on: ubuntu-latest
+#         steps:
+#             - name: Check out repo
+#               uses: actions/checkout@v3
+#             - name: auth
+#               id: auth
+#               uses: 'google-github-actions/auth@v1'
+#               with:
+#                 credentials_json: '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}'
 
-            - name: Set up Cloud SDK'
-              uses: 'google-github-actions/setup-gcloud@v1'
+#             - name: Set up Cloud SDK'
+#               uses: 'google-github-actions/setup-gcloud@v1'
 
-            - name: 'Use gcloud CLI'
-              run: 'gcloud info'
+#             - name: 'Use gcloud CLI'
+#               run: 'gcloud info'
 
-            - uses: hashicorp/setup-terraform@v2
-              with:
-                terraform_wrapper: false
+#             - uses: hashicorp/setup-terraform@v2
+#               with:
+#                 terraform_wrapper: false
 
-            - name: TF plan
-              id: tf-plan
-              working-directory: 'infrastructure/'
-              run: |
-                terraform init & terraform plan --var-file vars/vars.tfvars
+#             - name: TF plan
+#               id: tf-plan
+#               working-directory: 'infrastructure/'
+#               run: |
+#                 terraform init & terraform plan --var-file vars/vars.tfvars
 
-            - name: TF Apply
-              id: tf-apply
-              working-directory: 'infrastructure/'
-              if: ${{ steps.tf-plan.outcome }} == 'success'
-              run: |
-                terraform apply -auto-approve --var-file vars/vars.tfvars
+#             - name: TF Apply
+#               id: tf-apply
+#               working-directory: 'infrastructure/'
+#               if: ${{ steps.tf-plan.outcome }} == 'success'
+#               run: |
+#                 terraform apply -auto-approve --var-file vars/vars.tfvars
