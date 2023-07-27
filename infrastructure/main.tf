@@ -40,6 +40,19 @@ resource "google_storage_bucket" "google-cloud-bucket" {
   force_destroy = true
 }
 
+
+resource "google_storage_bucket_object" "column_file" {
+  name     = "../prod_model/one_hot_columns.pkl"
+  source   = "../prod_model/one_hot_columns.pkl"
+  bucket   = google_storage_bucket.google-cloud-bucket.id
+}
+
+resource "google_storage_bucket_object" "model_file" {
+  name     = "../prod_model/current_prod_model.pkl"
+  source   = "../prod_model/current_prod_model.pkl"
+  bucket   = google_storage_bucket.google-cloud-bucket.id
+}
+
 # DWH
 # Ref: https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigquery_dataset
 resource "google_bigquery_dataset" "dataset" {
@@ -55,10 +68,11 @@ resource "google_compute_instance" "project-vm" {
 
     metadata = {
       ssh-keys = "${var.SSH_USER}:${file(var.SSH_PUBLIC_KEY_PATH)}"
-      #startup-script = "make setup"
+      #startup-script = "git clone https://github.com/seacevedo/Splatoon_Battle_Prediction.git"
       "SERVICE_ACCOUNT_JSON" = "${file(var.SERVICE_ACCOUNT_FILE_PATH)}"
     }
 
+    metadata_startup_script = "git clone https://github.com/seacevedo/Splatoon_Battle_Prediction.git"
 
 
     boot_disk {
@@ -83,7 +97,7 @@ resource "google_compute_instance" "project-vm" {
 }
 
 
-/*resource "google_cloud_run_v2_service" "default" {
+resource "google_cloud_run_v2_service" "default_cloud_run" {
   name     = var.CLOUD_RUN_SERVICE_NAME
   location = var.GOOGLE_CLOUD_REGION
   ingress = "INGRESS_TRAFFIC_ALL"
@@ -91,6 +105,25 @@ resource "google_compute_instance" "project-vm" {
   template {
     containers {
       image = var.DOCKER_IMAGE_URL
+      ports {
+        container_port = 9696
+      }
     }
   }
-}*/
+}
+
+data "google_iam_policy" "noauth" {
+  binding {
+    role = "roles/run.invoker"
+    members = [
+      "allUsers",
+    ]
+  }
+}
+
+resource "google_cloud_run_service_iam_policy" "noauth" {
+  location    = google_cloud_run_v2_service.default_cloud_run.location
+  project     = google_cloud_run_v2_service.default_cloud_run.project
+  service     = google_cloud_run_v2_service.default_cloud_run.name
+  policy_data = data.google_iam_policy.noauth.policy_data
+}
