@@ -11,7 +11,6 @@ terraform {
 provider "google" {
   project = var.GOOGLE_CLOUD_PROJECT_ID
   region = var.GOOGLE_CLOUD_REGION
-  //credentials = file(var.SERVICE_ACCOUNT_FILE_PATH)
 }
 
 # Data Lake Bucket
@@ -66,11 +65,6 @@ resource "google_compute_instance" "project-vm" {
     machine_type = var.COMPUTE_VM_MACHINE_TYPE
     zone = var.COMPUTE_VM_REGION
 
-    metadata = {
-      ssh-keys = "${var.SSH_USER}:${file(var.SSH_PUBLIC_KEY_PATH)}"
-      #startup-script = "git clone https://github.com/seacevedo/Splatoon_Battle_Prediction.git"
-      "SERVICE_ACCOUNT_JSON" = "${file(var.SERVICE_ACCOUNT_FILE_PATH)}"
-    }
 
     metadata_startup_script = "git clone https://github.com/seacevedo/Splatoon_Battle_Prediction.git"
 
