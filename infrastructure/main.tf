@@ -96,7 +96,6 @@ resource "google_compute_instance" "project-vm" {
 
 }
 
-
 resource "google_cloud_run_v2_service" "default_cloud_run" {
   name     = var.CLOUD_RUN_SERVICE_NAME
   location = var.GOOGLE_CLOUD_REGION
