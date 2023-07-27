@@ -22,3 +22,12 @@ jobs:
 
             - name: Lint
               run: pipenv run pylint --recursive=y .
+    tf-plan:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - name: TF plan
+          id: plan
+          working-directory: '/infrastructure'
+          run: |
+            terraform init & terraform plan --var-file vars/vars.tfvars
