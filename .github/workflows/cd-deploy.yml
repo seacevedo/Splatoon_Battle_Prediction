@@ -2,7 +2,7 @@
 # on:
 #     push:
 #         branches:
-#             - 'main'
+#             - 'dev'
 
 # jobs:
 #     build-push-deploy:
