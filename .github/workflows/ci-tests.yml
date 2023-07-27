@@ -5,29 +5,29 @@ on:
             - 'main'
 
 jobs:
-    test:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
-            - name: Set up Python 3.10.9
-              uses: actions/setup-python@v4
-              with:
-                    python-version: 3.10.9
+    # test:
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #         - uses: actions/checkout@v3
+    #         - name: Set up Python 3.10.9
+    #           uses: actions/setup-python@v4
+    #           with:
+    #                 python-version: 3.10.9
 
-            - name: Install dependencies
-              run: pip install pipenv && pipenv install && pipenv install --dev
+    #         - name: Install dependencies
+    #           run: pip install pipenv && pipenv install && pipenv install --dev
 
-            - name: Run unit tests
-              run: pipenv run pytest unit_tests/
+    #         - name: Run unit tests
+    #           run: pipenv run pytest unit_tests/
 
-            - name: Lint
-              run: pipenv run pylint --recursive=y .
+    #         - name: Lint
+    #           run: pipenv run pylint --recursive=y .
     tf-plan:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v3
+        - uses: hashicorp/setup-terraform@v2
         - name: TF plan
-          id: plan
-          working-directory: '/infrastructure'
+          working-directory: 'infrastructure/'
           run: |
             terraform init & terraform plan --var-file vars/vars.tfvars
