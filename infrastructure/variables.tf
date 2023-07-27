@@ -55,21 +55,6 @@ variable "SERVICE_ACCOUNT_EMAIL" {
   type = string
 }
 
-variable "SSH_USER" {
-  description = "User of the cloud VM environment"
-  type = string
-}
-
-variable "SSH_PUBLIC_KEY_PATH" {
-  description = "Path where your SSH public key is located"
-  type = string
-}
-
-
-variable "SERVICE_ACCOUNT_FILE_PATH" {
-  description = "Path where your service account keyfile JSON file is located"
-  type = string
-}
 
 variable "DOCKER_IMAGE_URL" {
   description = "URL where docker image is being hosted"
