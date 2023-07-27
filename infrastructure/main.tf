@@ -11,7 +11,7 @@ terraform {
 provider "google" {
   project = var.GOOGLE_CLOUD_PROJECT_ID
   region = var.GOOGLE_CLOUD_REGION
-  credentials = jsondecode(var.SERVICE_ACCOUNT_FILE_PATH)
+  credentials = file(var.SERVICE_ACCOUNT_FILE_PATH)
 }
 
 # Data Lake Bucket

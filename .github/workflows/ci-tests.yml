@@ -26,8 +26,11 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v3
+
         - uses: hashicorp/setup-terraform@v2
+
         - name: TF plan
+          id: plan
           working-directory: 'infrastructure/'
           run: |
             terraform init & terraform plan --var-file vars/vars.tfvars
