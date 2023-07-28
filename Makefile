@@ -12,15 +12,12 @@ integration_testing: unit_testing quality_checks
 
 
 setup: integration_testing
-	git clone https://github.com/seacevedo/Splatoon_Battle_Prediction.git
-	cd Splatoon_Battle_Prediction
 	sudo apt-get update -y
 	sudo apt install python3-pip -y
 	sudo apt install pipenv
-	pipenv --python 3.10.6
-	pipenv update
-	pipenv shell
-	curl -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/instance/attributes/SERVICE_ACCOUNT_JSON" >> service_account_keyfile.json
+	sudo pipenv --python 3.10.6
+	sudo pipenv update
+	sudo pipenv shell
 	sudo apt-get install ca-certificates curl gnupg
 	sudo install -m 0755 -d /etc/apt/keyrings
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
