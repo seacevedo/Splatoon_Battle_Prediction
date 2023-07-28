@@ -66,7 +66,7 @@ resource "google_compute_instance" "project-vm" {
     zone = var.COMPUTE_VM_REGION
 
 
-    metadata_startup_script = "git clone https://github.com/seacevedo/Splatoon_Battle_Prediction.git"
+    metadata_startup_script = "cd /home/seacevedo & git clone https://github.com/seacevedo/Splatoon_Battle_Prediction.git"
 
 
     boot_disk {
