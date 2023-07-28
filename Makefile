@@ -11,7 +11,7 @@ integration_testing: unit_testing quality_checks
 	bash integration_tests/run.sh
 
 
-setup: integration_testing
+setup:
 	sudo apt-get update -y
 	sudo apt install python3-pip -y
 	sudo apt install pipenv
