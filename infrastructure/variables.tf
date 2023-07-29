@@ -41,7 +41,7 @@ variable "COMPUTE_VM_MACHINE_TYPE" {
 variable "COMPUTE_VM_IMG" {
   description = "Image of your cloud VM environment"
   type = string
-  default = "ubuntu-2204-jammy-v20230302"
+  default = "ubuntu-2004-focal-v20230724"
 }
 
 variable "COMPUTE_VM_REGION" {
