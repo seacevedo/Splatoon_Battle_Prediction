@@ -78,7 +78,7 @@ def feature_engineering(
     artifact_name_scaled = artifact_date + '_scaled_data'
 
     artifact = wandb.Artifact(artifact_name_scaled, type="scaled_data")
-    artifact.add_dir(artifact_path)
+    artifact.add_dir(artifact_data_path)
     run.log_artifact(artifact)
     run.finish()
 
@@ -92,7 +92,7 @@ def train_model(
     y_test: np.ndarray,
     artifact_path: str,
 ):
-    wandb.init()
+    run = wandb.init()
     config = wandb.config
 
     wandb_callback = wandb.catboost.WandbCallback()
@@ -122,16 +122,18 @@ def train_model(
 
     os.makedirs(artifact_model_path, exist_ok=True)
 
-    with open(
+    model_file_path = (
         artifact_model_path
         + '/'
-        + f'catboost_cat_max_depth_{0}_l2_leaf_reg_{1}_ \
-            learning_rate_{2}_bagging_temperature_{3}.pkl'.format(
-            config.max_depth,
-            config.l2_leaf_reg,
-            config.learning_rate,
-            config.bagging_temperature,
-        ),
+        + (
+            f'catboost_cat_max_depth_{config.max_depth}_l2_leaf_reg_{config.l2_leaf_reg}_'
+            f'learning_rate_{config.learning_rate}_bagging_temperature_'
+            f'{config.bagging_temperature}.pkl'
+        )
+    )
+
+    with open(
+        model_file_path,
         'wb',
     ) as model_file:
         pickle.dump(catboost_model, model_file)
@@ -141,9 +143,11 @@ def train_model(
 
     artifact_date = str(date.today())
 
-    artifact = wandb.Artifact(artifact_date + '_trained_model', type="catboost_model")
-    artifact.add_dir(artifact_path)
+    artifact = wandb.Artifact(artifact_date + '_trained_model', type="model")
+    artifact.add_file(model_file_path)
     wandb.log_artifact(artifact)
+
+    run.link_artifact(artifact, 'model-registry/My Registered Model')
 
 
 SWEEP_CONFIG = {
@@ -203,12 +207,11 @@ def optimize(
     # Get best run parameters
     best_run = sweep.best_run()
     best_parameters = best_run.config
-    prod_model_file_name = f'catboost_cat_max_depth_{0}_l2_leaf_reg_{1}_ \
-    learning_rate_{2}_bagging_temperature_{3}.pkl'.format(
-        best_parameters['max_depth'],
-        best_parameters['l2_leaf_reg'],
-        best_parameters['learning_rate'],
-        best_parameters['bagging_temperature'],
+    prod_model_file_name = (
+        f"catboost_cat_max_depth_{best_parameters['max_depth']}_"
+        f"l2_leaf_reg_{best_parameters['l2_leaf_reg']}_learning_rate_"
+        f"{best_parameters['learning_rate']}_bagging_temperature_"
+        f"{best_parameters['bagging_temperature']}.pkl"
     )
     shutil.copyfile(
         artifact_model_path + prod_model_file_name,
