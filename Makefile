@@ -19,6 +19,7 @@ setup_pipenv:
 	sudo python3 -m pipenv update
 	sudo python3 -m pipenv shell
 
+
 setup_docker:
 	sudo apt-get install ca-certificates curl gnupg
 	sudo install -m 0755 -d /etc/apt/keyrings
