@@ -11,13 +11,15 @@ integration_testing: unit_testing quality_checks
 	bash integration_tests/run.sh
 
 
-setup:
+setup_pipenv:
 	sudo apt-get update -y
 	sudo apt install python3-pip -y
 	sudo pip install pipenv
 	sudo python3 -m pipenv --python 3.10.6
 	sudo python3 -m pipenv update
 	sudo python3 -m pipenv shell
+
+setup_docker:
 	sudo apt-get install ca-certificates curl gnupg
 	sudo install -m 0755 -d /etc/apt/keyrings
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
@@ -28,6 +30,3 @@ setup:
 	sudo apt install docker-compose -y
 	cd monitoring
 	sudo docker-compose -f docker_compose.yaml up -d
-	cd ..
-	wandb login
-	cd flows
