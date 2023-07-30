@@ -19,7 +19,8 @@ Splatoon 3 is the latest entry in the Splatoon series by Nintendo. It has garner
 * [Grafana](https://grafana.com/) to monitor dataset drift
 * [Docker](https://www.docker.com/) to containerize deployed model and monitoring architecture
 * [Docker Compose](https://docs.docker.com/compose/) for managing multiple docker containers used in this project
-
+* [Pre-Commit Hooks](https://pre-commit.com/) to identify simple issues in code before review
+* [Github Actions](https://github.com/features/actions) to prevent issues and making sure tests work before merging with main branch. Once merged with main, the deployment process is initiated.
 ## Pipeline Architecture
 ![alt_text](https://github.com/seacevedo/Solana-Pipeline/blob/main/pipeline_infrastructure.png)
 
