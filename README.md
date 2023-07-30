@@ -90,7 +90,12 @@ Access the deployed model [here](https://app-run-service-gq2tu4do3a-uc.a.run.app
     *  sudo apt-get install ca-certificates curl gnupg
     *  sudo install -m 0755 -d /etc/apt/keyrings
     *  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-    *  
+    *  sudo chmod a+r /etc/apt/keyrings/docker.gpg
+    *  echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    *  sudo apt-get update -y
+    *  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+    *  sudo apt install docker-compose -y
+11. Move into the `monitoring` directory using the `cd monitoring` command. Then run the docker containers using the command 
 8. You should now have prefect installed. Run the prefect server locally using the `prefect orion start` command to monitor flows. This is needed to access the Orion UI. In another terminal, `cd` into the `flows` directory and run the command `prefect deployment build main_flow.py:run_pipeline -n "solana-pipeline-deployment" --cron "0 0 * * *" -a` to build the prefect deployment that runs at 12:00 AM every day. Make sure you setup the following prefect blocks before running:
 
 | Block Name       | Description  |
