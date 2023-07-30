@@ -23,72 +23,11 @@ Splatoon 3 is the latest entry in the Splatoon series by Nintendo. It has garner
 * [Pre-Commit Hooks](https://pre-commit.com/) to identify simple issues in code before review
 * [Github Actions](https://github.com/features/actions) to prevent issues and making sure tests work before merging with main branch. Once merged with main, the deployment process is initiated.
 ## Pipeline Architecture
-![alt_text](https://github.com/seacevedo/Solana-Pipeline/blob/main/pipeline_infrastructure.png)
+![alt_text](https://github.com/seacevedo/Splatoon_Battle_Prediction/blob/main/images/mlops_architecture.png)
 
-* Terraform is used to setup the environment to run our pipeline. When run, the script creates our BigQuery dataset, bucket, and our VM to run our Prefect deployment.
-* A Prefect agent is run on our VM compute environment and runs any pending deployments. Using the PRAW API, our flow extracts data from the Solana subreddit, calculates the sentiment of the text data and loads it into a GCS bucket. The data from the bucket is then uploaded to BigQuery tables for further transformation using DBT. 
-* DBT is used to further transform the data by combining the comments and posts data with their corresponding sentiment data. Data aggregations are also made to caluclate the number of comments for each post and calculate upvote/comment ratios.
-* Looker studio is used to visualize the fact data tables from the resulting transformations completed by DBT.
-
-## Structure of the Fact Tables
-
-### fact_submission 
-
-| Column        | Data Type   | Description |
-| ------------- |:-------------:| -------------:| 
-| post_id      | STRING | Surrogate key created using DBT using submission_id and submission_created_time |
-| submission_id      | STRING      | Reddit Submission ID|
-| submission_author | STRING      |  Author of post |
-| submission_title | STRING      | Title of Post |
-| submission_text | STRING     | Text of post |
-| sentiment_score | NUMERIC      |  Sentiment score of post |
-| sentiment_label | STRING      |  Whether the text is postive, negative, or neutral|
-| positive_words | STRING     |  postive words found in post|
-| negative_words | STRING      |  negative words found in post |
-| submission_upvotes | INTEGER     | Number of upvotes post has |
-| submission_downvotes | INTEGER      | Nunber of downvotes post has |
-| submission_created_time | TIMESTAMP | Time post was created in UTC |
-| submission_url | STRING    | URL post links to |
-
-### fact_comment
-
-| Column        | Data Type   | Description |
-| ------------- |:-------------:| -------------:| 
-| reply_id      | STRING | Surrogate key created using DBT using comment_id and comment_created_time |
-| comment_id      | STRING      | Reddit Comment ID|
-| submission_id      | STRING      | Reddit Submission ID|
-| comment_author | STRING      |  Author of comment |
-| comment_text | STRING     | Text of comment |
-| sentiment_score | NUMERIC      |  Sentiment score of comment |
-| sentiment_label | STRING      |  Whether the text is postive, negative, or neutral|
-| positive_words | STRING     |  postive words found in comment|
-| negative_words | STRING      |  negative words found in comment |
-| comment_upvotes | INTEGER     | Number of upvotes comment has |
-| comment_downvotes | INTEGER      | Nunber of downvotes comment has |
-| comment_created_time | TIMESTAMP | Time comment was created in UTC |
-| comment_url | STRING    | URL comment links to |
-
-### fact_engagement
-
-| Column        | Data Type   | Description |
-| ------------- |:-------------:| -------------:| 
-| post_id      | STRING | Surrogate key created using DBT using submission_id and submission_created_time |
-| submission_id      | STRING      | Reddit Submission ID|
-| submission_author | STRING      |  Author of post |
-| submission_title | STRING      | Title of Post |
-| submission_upvotes | INTEGER     | Number of upvotes post has |
-| submission_downvotes | INTEGER      | Nunber of downvotes post has |
-| num_comments | INTEGER    | total number of comments the post has |
-| upvote_comment_ratio | FLOAT    | ratio of the number of upvotes divided by the number of comments. Metric to measure engagement. |
-| submission_created_time | TIMESTAMP | Time post was created in UTC |
-
-### Lineage Graph
-![alt_text](https://github.com/seacevedo/Solana-Pipeline/blob/main/lineage_graph.png)
-
-* `staging.submission`, `staging.sentiments`, and `staging.comments` are tables where we have loaded all of our collected subreddit data. 
-* `stg_submission`, `stg_sentiments`, and `stg_comments` are views that apply some type casting and create new surrogate keys. This is to ensure that the api does not somehow extract the same id for two different posts.  
-* `fact_submission` and `fact_comments` are tables that join the `stg_submission` and `stg_comments` with `stg_sentiments`. They are partitioned by the time of creation and clustered by sentiment label.
-* `fact_engagement` is a table that joins the  `fact_submission` and `fact_comments` and applies some aggregations to calculate the number of comments per post and caluclate the upvote comment ratio.
+* Terraform is used to setup the environment to run our pipeline. When run, the script creates our BigQuery dataset, bucket, deploys a Docker containerized production model to Google Cloud Run, and our VM to run our Prefect deployment.
+* A Prefect agent is run on our VM compute environment and runs any pending deployments. The pipeline is meant to be run every N months. Initially, the pipeline extracts Splatoon 3 battle data from stat.ink, adds the raw data to a GCS bucket, cleans the data and performs feature engineering and extraction, and then moves the resulting the data to a BigQuery dataset. The data from bigquery is then used to train different models until an optimal one is selected, which will be registered in Weights and Biases and a production folder in the bucket. A reference dataset will be queried from BigQuery to be used as a comparison to the training dataset to see if data drift exists. This is calculated by Evidently, which triggers a notification if this occurs.
+* Eveidently will record any drift metrics to a postgres database. This database will be queried by a grafana dashboard to monitor drift.
 
 
 ## Dashboard Preview
