@@ -1,23 +1,24 @@
 <p align="center">
-  <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9af4c12f-a0d9-48ab-a9d3-240148699eaf/deepslq-34d910c2-7ac2-4064-b489-3f248b233410.png/v1/fill/w_1193,h_670/_logo__splatoon_3_logo_recreation_transparent_by_rapbattleeditor0510_deepslq-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzE5IiwicGF0aCI6IlwvZlwvOWFmNGMxMmYtYTBkOS00OGFiLWE5ZDMtMjQwMTQ4Njk5ZWFmXC9kZWVwc2xxLTM0ZDkxMGMyLTdhYzItNDA2NC1iNDg5LTNmMjQ4YjIzMzQxMC5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.p3BZSQf-7FPi_383Pitmd8XJVusBMZuTZbjNBCyD3Xs" />
+  <img src="https://i.imgur.com/zLXjmgw.png" />
 </p>
 
 ## Purpose
 
-Solana is a new blockchain protocol that has garrnered interest in the technology space due to its unique proof of history consensus algorithm that results in lightning fast transaction times. However, it has been plagued by numerous outages and scandals, most notably the bankruptcy of FTX, which invested heavily into the Solana ecosystem. Due to this, it would be helpful to keep track of the development and community sentiment around this growing ecosystem. Solana could be useful as a case study to be able to understand what makes a blockchain protocol successful and able to maintain community and developer support. The aim of this project is to build an automated pipeline to gather and synthesize data from community discussion around Solana. Using the [PRAW API](https://praw.readthedocs.io/en/latest/index.html) we will extract posts and comments from the [Solana subreddit](https://www.reddit.com/r/solana/). This data will be transformed and then summarized into a dashboard to extract insight from the discussions of the burgeoning Solana community.
+Splatoon 3 is the latest entry in the Splatoon series by Nintendo. It has garnered a massive following, even having a reach into competitive gaming. The purpose of this project is to provide a Machine Learning solution that can predict victors from past game data. Such a tool would be useful in tournaments to predict winners of games being played in real time.
 
 
 ## Technology Stack
 
-
-* [PRAW API](https://praw.readthedocs.io/en/latest/index.html) to scrape for posts and associated comments from the Solana subreddit.
 * [Google Cloud](https://cloud.google.com/) to upload data to a google cloud bucket and use BigQuery as our data warehouse. We will also set up a VM environment to host our prefect deployment.
 * [Terraform](https://www.terraform.io/) for version control of our infrastructure.
 * [Prefect](https://www.prefect.io/) will be used to orchestrate and monitor our pipeline. 
-* [SpaCy](https://spacy.io/) is an NLP library that we will use to calculate sentiment for both subreddit posts and comments.
-* [DBT](https://www.getdbt.com/) to transform out data in BigQuery and prepare it for visualization. 
-* [Looker Studio](https://lookerstudio.google.com/overview) to visualize our transformed dataset. 
-* [Pandas](https://pandas.pydata.org/) to import and transform our dataset. 
+* [Pandas](https://pandas.pydata.org/) to import and transform our dataset.
+* [Weights and Biases](https://wandb.ai/site) to track model performance and keep track of models and datasets used.
+* [Evidently](https://www.evidentlyai.com/) to monitor dataset drift.
+* [Postgres](https://www.postgresql.org/) to save dataset drift metrics
+* [Grafana](https://grafana.com/) to monitor dataset drift
+* [Docker](https://www.docker.com/) to containerize deployed model and monitoring architecture
+* [Docker Compose](https://docs.docker.com/compose/) for managing multiple docker containers used in this project
 
 ## Pipeline Architecture
 ![alt_text](https://github.com/seacevedo/Solana-Pipeline/blob/main/pipeline_infrastructure.png)
