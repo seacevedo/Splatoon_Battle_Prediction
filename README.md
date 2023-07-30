@@ -13,7 +13,7 @@ Splatoon 3 is the latest entry in the Splatoon series by Nintendo. It has garner
 * [Terraform](https://www.terraform.io/) for version control of our infrastructure.
 * [Prefect](https://www.prefect.io/) will be used to orchestrate and monitor our pipeline. 
 * [Pandas](https://pandas.pydata.org/) to import and transform our dataset.
-* [splat.ink](https://stat.ink/index?_lang_=en-US) to access splatoon 3 battle data.
+* [splat.ink](https://stat.ink/index?_lang_=en-US) to access splatoon 3 battle data. You can learn more about the columns of data set [here](https://github.com/fetus-hina/stat.ink/wiki/Spl3-%EF%BC%8D-CSV-Schema-%EF%BC%8D-Battle).
 * [Weights and Biases](https://wandb.ai/site) to track model performance and keep track of models and datasets used.
 * [Evidently](https://www.evidentlyai.com/) to monitor dataset drift.
 * [Postgres](https://www.postgresql.org/) to save dataset drift metrics
@@ -27,11 +27,11 @@ Splatoon 3 is the latest entry in the Splatoon series by Nintendo. It has garner
 
 * Terraform is used to setup the environment to run our pipeline. When run, the script creates our BigQuery dataset, bucket, deploys a Docker containerized production model to Google Cloud Run, and our VM to run our Prefect deployment.
 * A Prefect agent is run on our VM compute environment and runs any pending deployments. The pipeline is meant to be run every N months. Initially, the pipeline extracts Splatoon 3 battle data from stat.ink, adds the raw data to a GCS bucket, cleans the data and performs feature engineering and extraction, and then moves the resulting the data to a BigQuery dataset. The data from bigquery is then used to train different models until an optimal one is selected, which will be registered in Weights and Biases and a production folder in the bucket. A reference dataset will be queried from BigQuery to be used as a comparison to the training dataset to see if data drift exists. This is calculated by Evidently, which triggers a notification if this occurs.
-* Eveidently will record any drift metrics to a postgres database. This database will be queried by a grafana dashboard to monitor drift.
+* Evidently will record any drift metrics to a postgres database. This database will be queried by a grafana dashboard to monitor drift. This infrastructure is orchestrated by Docker Compose.
 
 
-## Dashboard Preview
-Access the dashboard [here](https://lookerstudio.google.com/reporting/155051d4-8969-4104-b3c3-32b8018f5825/page/6EmLD) 
+## Deployment Preview
+Access the deployed model [here](https://app-run-service-gq2tu4do3a-uc.a.run.app/). You can use it by uploading a CSV file containing raw Splatoon 3 battle data from stat.ink. After uploading, a link to a file with your results should pop up. Click the link to download the resuling file. Results should be under the `prediction` column.
 
 ![alt_text](https://github.com/seacevedo/Solana-Pipeline/blob/main/dashboard_preview.png)
 
