@@ -54,31 +54,43 @@ Access the deployed model [here](https://app-run-service-gq2tu4do3a-uc.a.run.app
 
 8. Make sure these APIs are enabled for your project:
 
-https://console.cloud.google.com/apis/library/iam.googleapis.com
-https://console.cloud.google.com/apis/library/iamcredentials.googleapis.com
-https://console.cloud.google.com/apis/library/compute.googleapis.com
-https://console.cloud.google.com/apis/library/run.googleapis.com
+* https://console.cloud.google.com/apis/library/iam.googleapis.com
+* https://console.cloud.google.com/apis/library/iamcredentials.googleapis.com
+* https://console.cloud.google.com/apis/library/compute.googleapis.com
+* https://console.cloud.google.com/apis/library/run.googleapis.com
 
 ### Setup VM Environment
 
-1. Clone the repo and `cd` into the `Solana-Pipeline` folder
-2. Install [Terraform](https://www.terraform.io/)
-3. Make sure you have an SSH key generated to log into the VM.
-4. `cd` to the `terraform` directory and enter the commands `terraform init`, `terraform plan`, and `terraform apply`. You can remove the corresponding infrastructure by using `terraform destroy`. For the plan and destroy commands you will be prompted to input the following variables:
+1. Clone the repo and `cd` into the `Splatoon_Battle_Prediction` folder
+2. Make any necessary changes and push to new repo, using `git add .`, `git commit -m "my commit message"`, and `git push`. Bfore you do this make sure you have a `main` and `dev` branch. Push changes to dev branch, using the command `git checkout -b dev`.
+3. Pre-commit hooks should be running to make changes to files and format code approrpiately. You may need to disable either black or isort hooks as they tend to conflict with one another and prevent successful pushing.
+4. After the code has been pushed to the `dev` branch, create a pull request and wait until the `CI Test` Github action step completes successfully. You can then merge with with the `main` branch, which should trigger a deplyment using terraform. You may need to adjust the following variables in the `infrastructure/vars/vars.tfvars` file appropriately:
 
 | Variable       | Description  |
 | ------------- |:-------------:|
 | GOOGLE_CLOUD_PROJECT_ID      | ID of the google cloud project | 
 | SERVICE_ACCOUNT_EMAIL     | Email of the service account you used to generate the key file  | 
-| SSH_USER | Username you used for the SSH Key   |  
-| SSH_PUBLIC_KEY_PATH | Path to the public SSH key      |
-| SETUP_SCRIPT_PATH | Path of the setup.sh script within the Solana-Pipeline directory     | 
-| SERVICE_ACCOUNT_FILE_PATH | Keyfile of the service account   | 
-| GOOGLE_CLOUD_BUCKET_NAME | Name of your GCS bucket   | 
+| CLOUD_RUN_SERVICE_NAME | Name of your Google Cloud Run Service  | 
+| DOCKER_IMAGE_URL | URL of your deployed containerized model | 
+| COMPUTE_VM_NAME | Name of your VM Environment  | 
 
-5. Log in your newly created VM environment using the following command `ssh -i /path/to/private/ssh/key username@vm_external_ip_address`. As an alternative, follow this [video](https://www.youtube.com/watch?v=ae-CV2KfoN0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb) to help setup SSH in a VS code environment, which allows for port forwarding from your cloud VM to your local machine. Type the command `cd /Solana-Pipeline` to `cd` into the `/Solana-Pipeline` directory. Login as super user with the command `sudo su` in order to edit files.
-6. Activate the newly created python virtual environment using the command: `source solana-pipeline-env/bin/activate` (You may have to wait a few minutes in order for the vm instance to finish running the setup.sh script and installing all necessary dependancies).
-7. Make sure you update the profiles.yml and schema.yml files in your dbt directory. Change the appropriate fields with the correct google cloud project id, dataset name, location, and keyfile path. 
+5. You can use the default docker container URL for the deployment of the model or you can construct your own and push it to Docker hub. You can use the Dockerfile in the `deployment` directory for this. Make sure you change the URL in `infrastructure/vars/vars.tfvars` if this is the case.
+6. Make sure you add the following repository secret variables as well in order to succesfully pass the `CD Deploy` Github action:
+
+| Variable       | Description  |
+| ------------- |:-------------:|
+| GOOGLE_APPLICATION_CREDENTIALS      | JSON file containing Google cloud credentials | 
+| SSH_PUBLIC_KEY     | SSH Public Key that will be used to access VM environment | 
+
+   
+7. Log in your newly created VM environment using the following command `ssh -i /path/to/private/ssh/key username@vm_external_ip_address`. As an alternative, follow this [video](https://www.youtube.com/watch?v=ae-CV2KfoN0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb) to help setup SSH in a VS code environment, which allows for port forwarding from your cloud VM to your local machine. Type the command `cd /Solana-Pipeline` to `cd` into the `/Solana-Pipeline` directory. Login as super user with the command `sudo su` in order to edit files.
+8. Install `make` using the command `sudo apt install make`
+9. Create and activate the python pipenv environment using the command: `make setup_pipenv`. You can then run the code quality checks, unit tests, and integration tests using `make integration_testing`.
+10. You should now install Docker. Use the following commands, in order:
+    *  sudo apt-get install ca-certificates curl gnupg
+    *  sudo install -m 0755 -d /etc/apt/keyrings
+    *  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    *  
 8. You should now have prefect installed. Run the prefect server locally using the `prefect orion start` command to monitor flows. This is needed to access the Orion UI. In another terminal, `cd` into the `flows` directory and run the command `prefect deployment build main_flow.py:run_pipeline -n "solana-pipeline-deployment" --cron "0 0 * * *" -a` to build the prefect deployment that runs at 12:00 AM every day. Make sure you setup the following prefect blocks before running:
 
 | Block Name       | Description  |
