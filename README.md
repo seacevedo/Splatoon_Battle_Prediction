@@ -33,7 +33,7 @@ Splatoon 3 is the latest entry in the Splatoon series by Nintendo. It has garner
 ## Deployment Preview
 Access the deployed model [here](https://app-run-service-gq2tu4do3a-uc.a.run.app/). You can use it by uploading a CSV file containing raw Splatoon 3 battle data from stat.ink. After uploading, a link to a file with your results should pop up. Click the link to download the resuling file. Results should be under the `prediction` column.
 
-![alt_text](https://github.com/seacevedo/Solana-Pipeline/blob/main/dashboard_preview.png)
+![alt_text](https://github.com/seacevedo/Splatoon_Battle_Prediction/blob/main/images/prod_model.png)
 
 ## Replication Steps
 
