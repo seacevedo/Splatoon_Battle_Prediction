@@ -13,6 +13,7 @@ Splatoon 3 is the latest entry in the Splatoon series by Nintendo. It has garner
 * [Terraform](https://www.terraform.io/) for version control of our infrastructure.
 * [Prefect](https://www.prefect.io/) will be used to orchestrate and monitor our pipeline. 
 * [Pandas](https://pandas.pydata.org/) to import and transform our dataset.
+* [splat.ink](https://stat.ink/index?_lang_=en-US) to access splatoon 3 battle data.
 * [Weights and Biases](https://wandb.ai/site) to track model performance and keep track of models and datasets used.
 * [Evidently](https://www.evidentlyai.com/) to monitor dataset drift.
 * [Postgres](https://www.postgresql.org/) to save dataset drift metrics
