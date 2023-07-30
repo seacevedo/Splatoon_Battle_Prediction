@@ -37,17 +37,12 @@ Access the deployed model [here](https://app-run-service-gq2tu4do3a-uc.a.run.app
 
 ## Replication Steps
 
-### Create a Reddit Account
-
-1. You must create a reddit account in order to be able to scrape subreddit data. 
-2. Once you have an account go [here](https://www.reddit.com/prefs/apps). Click on the `create another app...` button at the bottom of the page. Fill in the required fields and select `web app`. Click on `create app`
-3. Under the `web_app` text under your newly created app information you should have an id for your application. Record this and the secret key. You will need to parameterize your flow with these tokens in order to use the PRAW apiSetup Google Cloud 
 
 ### Setup Google Cloud 
 
 1. Create a google cloud account
 2. Setup a new google cloud [project](https://cloud.google.com/).
-3. Create a new service account. Give the service account the `Compute Admin`, `Service Account User`, `Storage Admin`, `Storage Object Admin`, and `BigQuery Admin` Roles.
+3. Create a new service account. Give the service account the `Compute Admin`, `Service Account User`, `Storage Admin`, `Storage Object Admin`, `Cloud Run Admin`, and `BigQuery Admin` Roles.
 4. After the service account has been created, click on `Manage Keys` under the `Actions` Menu. Click on the `Add Key` dropdown and click on `Create new key`. A prompt should pop up asking to download it as a json or P12 file. Choose the json format and click `Create`. Save your key file.
 5. Install the the [Google Cloud CLI](https://cloud.google.com/sdk/docs/install-sdk). Assuming you have an Ubuntu linux distro or similar as your environment, follow the directions for `Debian/Ubuntu`. Make sure you log in by running `gcloud init`. Choose the cloud project you created to use.
 6. Set the environment variable to point to your downloaded service account keys json file:
@@ -62,6 +57,7 @@ Access the deployed model [here](https://app-run-service-gq2tu4do3a-uc.a.run.app
 https://console.cloud.google.com/apis/library/iam.googleapis.com
 https://console.cloud.google.com/apis/library/iamcredentials.googleapis.com
 https://console.cloud.google.com/apis/library/compute.googleapis.com
+https://console.cloud.google.com/apis/library/run.googleapis.com
 
 ### Setup VM Environment
 
