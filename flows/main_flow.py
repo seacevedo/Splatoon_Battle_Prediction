@@ -3,6 +3,7 @@ import sys
 from prefect import flow
 from train_model import optimize, feature_engineering
 from monitor_model import batch_monitoring_fill
+from prefect_email import EmailServerCredentials, email_send_message
 from fetch_battle_data import (
     retrieve_data_bq,
     extract_battle_data,
@@ -27,12 +28,10 @@ def run_pipeline(
     file_name = transform_battle_data(data_path, num_months)
     load_battle_data_gcs(data_path)
     upload_data_bigquery(file_name, data_path)
-    current_data_query = f'''SELECT * FROM `{0}.{1}.{2}`
+    current_data_query = f'''SELECT * FROM `{gcp_project_id}.{bigquery_dataset}.{bigquery_table}`
                             WHERE DATE(period) BETWEEN
-                            DATE_SUB(CURRENT_DATE(), INTERVAL {3} MONTH) AND CURRENT_DATE()
-                            ORDER BY period;'''.format(
-        gcp_project_id, bigquery_dataset, bigquery_table, num_months
-    )
+                            DATE_SUB(CURRENT_DATE(), INTERVAL {num_months} MONTH) AND CURRENT_DATE()
+                            ORDER BY period;'''
     current_data_df = retrieve_data_bq(current_data_query)
     print(current_data_df.head())
     X_train, X_test, y_train, y_test = feature_engineering(
@@ -42,15 +41,22 @@ def run_pipeline(
         X_train, X_test, y_train, y_test, wandb_project, wandb_entity, artifact_path, 1
     )
     load_battle_data_gcs('../prod_model')
-    reference_data_query = f'''SELECT * FROM `{0}.{1}.{2}`
+    reference_data_query = f'''SELECT * FROM `{gcp_project_id}.{bigquery_dataset}.{bigquery_table}`
                               WHERE DATE(period) BETWEEN
-                              DATE_SUB(DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY),
-                              INTERVAL {3} MONTH) AND DATE_SUB(CURRENT_DATE(),
-                              INTERVAL 1 DAY);'''.format(
-        gcp_project_id, bigquery_dataset, bigquery_table, num_months
-    )
+                              DATE_SUB(DATE_SUB(CURRENT_DATE(), INTERVAL {num_months} MONTH),
+                              INTERVAL {num_months} MONTH) AND DATE_SUB(CURRENT_DATE(),
+                              INTERVAL {num_months} MONTH);'''
     reference_data_df = retrieve_data_bq(reference_data_query)
-    batch_monitoring_fill(current_data_df, reference_data_df)
+    pred_value = float(batch_monitoring_fill(current_data_df, reference_data_df))
+    email_server_credentials = EmailServerCredentials.load("email-server-credentials")
+
+    if pred_value > 0.1:
+        email_send_message(
+            email_server_credentials=email_server_credentials,
+            subject="Data Drift!",
+            msg="Reference and current dataset have drifted!.",
+            email_to=email_server_credentials.username,
+        )
 
 
 if __name__ == '__main__':

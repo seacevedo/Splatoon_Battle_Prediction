@@ -24,13 +24,15 @@ def upload_data_bigquery(file_name: str, data_path: str) -> None:
         table="battle_data",
         uri=f"gs://splatoon-data-bucket/{data_path}/{file_name}",
         gcp_credentials=gcp_credentials_block,
-        location='us',
+        location='us-central1',
     )
 
 
 def retrieve_data_bq(query: str) -> pd.DataFrame:
     gcp_credentials_block = GcpCredentials.load("gcp-creds")
-    df = bigquery_query(query, gcp_credentials_block, to_dataframe=True)
+    df = bigquery_query(
+        query, gcp_credentials_block, to_dataframe=True, location='us-central1'
+    )
     return df
 
 
@@ -70,7 +72,9 @@ def extract_battle_data(data_path: str, num_months: int) -> None:
 def transform_battle_data(data_path: str, num_months: int) -> str:
     # all_filenames = [i for i in glob.glob(str(data_path) + '/*.{}'.format('csv'))]
     date_list = pd.date_range(
-        start=date.today() - timedelta(days=num_months), end=date.today(), freq='D'
+        start=date.today() - timedelta(days=num_months * 30 + 1),
+        end=date.today(),
+        freq='D',
     )
     all_filenames = [
         data_path

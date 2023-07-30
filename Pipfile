@@ -18,6 +18,7 @@ db-dtypes = "*"
 wandb = "*"
 psycopg-binary = "*"
 google-cloud-storage = "*"
+prefect-email = "*"
 
 [dev-packages]
 pytest = "*"

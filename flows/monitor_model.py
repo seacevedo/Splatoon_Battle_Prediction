@@ -29,8 +29,9 @@ def prep_db(db_username_secret: Any, db_password_secret: Any):
         );"""
 
     with psycopg.connect(
-        f"host=localhost port=5432 user={0} password={1}".format(
-            db_username_secret.get(), db_password_secret.get()
+        (
+            f"host=localhost port=5432 user={db_username_secret.get()} password="
+            f"{db_password_secret.get()}"
         ),
         autocommit=True,
     ) as conn:
@@ -40,8 +41,9 @@ def prep_db(db_username_secret: Any, db_password_secret: Any):
         if len(res.fetchall()) == 0:
             conn.execute("create database evidently_metrics;")
         with psycopg.connect(
-            f"host=localhost port=5432 dbname=evidently_metrics user={0} password={1}".format(
-                db_username_secret.get(), db_password_secret.get()
+            (
+                f"host=localhost port=5432 dbname=evidently_metrics user="
+                f"{db_username_secret.get()} password={db_password_secret.get()}"
             )
         ) as conn:
             conn.execute(create_table_statement)
@@ -51,7 +53,7 @@ def calculate_metrics_postgresql(
     curr: Any,
     current_data: pd.DataFrame,
     reference_data: pd.DataFrame,
-):
+) -> float:
     with open('../prod_model/current_prod_model.pkl', 'rb') as f_in:
         model = pickle.load(f_in)
 
@@ -121,23 +123,33 @@ def calculate_metrics_postgresql(
     ]
 
     curr.execute(
-        "insert into monitoring_metrics(timestamp, prediction_drift, num_drifted_columns, \
-        share_missing_values) values (%s, %s, %s, %s);",
+        (
+            "insert into monitoring_metrics(timestamp,prediction_drift,num_drifted_columns,"
+            "share_missing_values) values (%s, %s, %s, %s);"
+        ),
         (date.today(), prediction_drift, num_drifted_columns, share_missing_values),
     )
 
+    return prediction_drift
+
 
 @task(name="Prepare database and calculate metrics to save as record", log_prints=True)
-def batch_monitoring_fill(current_data: pd.DataFrame, reference_data: pd.DataFrame):
+def batch_monitoring_fill(
+    current_data: pd.DataFrame, reference_data: pd.DataFrame
+) -> float:
     db_username_secret = Secret.load("db-username")
     db_password_secret = Secret.load("db-password")
     prep_db(db_username_secret, db_password_secret)
     with psycopg.connect(
-        f"host=localhost port=5432 dbname=evidently_metrics user={0} password={1}".format(
-            db_username_secret.get(), db_password_secret.get()
+        (
+            f"host=localhost port=5432 dbname=evidently_metrics user="
+            f"{db_username_secret.get()} password={db_password_secret.get()}"
         ),
         autocommit=True,
     ) as conn:
         with conn.cursor() as curr:
-            calculate_metrics_postgresql(curr, current_data, reference_data)
+            drift_value = calculate_metrics_postgresql(
+                curr, current_data, reference_data
+            )
         conn.close()
+    return drift_value
