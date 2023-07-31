@@ -24,6 +24,7 @@ def run_pipeline(
     bigquery_dataset: str,
     bigquery_table: str,
 ):
+    # Runs Pipeline
     extract_battle_data(data_path, num_months)
     file_name = transform_battle_data(data_path, num_months)
     load_battle_data_gcs(data_path)
@@ -48,6 +49,7 @@ def run_pipeline(
                               INTERVAL {num_months} MONTH);'''
     reference_data_df = retrieve_data_bq(reference_data_query)
     pred_value = float(batch_monitoring_fill(current_data_df, reference_data_df))
+    # If prediction drift value is > 0.1, send and email
     email_server_credentials = EmailServerCredentials.load("email-server-credentials")
 
     if pred_value > 0.1:
