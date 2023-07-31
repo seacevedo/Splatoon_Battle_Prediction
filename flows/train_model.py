@@ -18,6 +18,7 @@ from sklearn.model_selection import train_test_split
 def feature_engineering(
     df: pd.DataFrame, wandb_project: str, wandb_entity: str, artifact_path: str
 ) -> Tuple[pd.DataFrame, pd.DataFrame, np.ndarray, np.ndarray]:
+    # Prepare data for training by scaling features, Scaled data will be saved as an artifact using Weights and Biases
     run = wandb.init(
         project=wandb_project, entity=wandb_entity, job_type="Feature Engineering"
     )
@@ -92,6 +93,7 @@ def train_model(
     y_test: np.ndarray,
     artifact_path: str,
 ):
+    # For model parameter sweep, train a CatBoost model and register model to Weights & Biases Model Registry
     run = wandb.init()
     config = wandb.config
 
@@ -189,6 +191,7 @@ def optimize(
     artifact_path: str,
     count: int,
 ):
+    # Run a parameter sweep using Weights and Biases and Choose the best model for production. It is saved in the the ../prod_model directory
     sweep_id = wandb.sweep(SWEEP_CONFIG, project=wandb_project, entity=wandb_entity)
     wandb.agent(
         sweep_id,
