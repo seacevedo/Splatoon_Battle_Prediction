@@ -20,6 +20,7 @@ from sklearn.preprocessing import MinMaxScaler
 
 
 def prep_db(db_username_secret: Any, db_password_secret: Any):
+    # Connect and prepare postgres database for inserting monitoing metric data 
     create_table_statement = """
         create table if not exists monitoring_metrics(
             timestamp timestamp,
@@ -54,6 +55,7 @@ def calculate_metrics_postgresql(
     current_data: pd.DataFrame,
     reference_data: pd.DataFrame,
 ) -> float:
+    # Calculate monitoring metrics using evidently and save to postgres database.
     with open('../prod_model/current_prod_model.pkl', 'rb') as f_in:
         model = pickle.load(f_in)
 
@@ -137,6 +139,7 @@ def calculate_metrics_postgresql(
 def batch_monitoring_fill(
     current_data: pd.DataFrame, reference_data: pd.DataFrame
 ) -> float:
+    # Run functions to prepare postgres database and calculate and insert drift metrics to postgres database.
     db_username_secret = Secret.load("db-username")
     db_password_secret = Secret.load("db-password")
     prep_db(db_username_secret, db_password_secret)
