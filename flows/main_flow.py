@@ -44,9 +44,9 @@ def run_pipeline(
     load_battle_data_gcs('../prod_model')
     reference_data_query = f'''SELECT * FROM `{gcp_project_id}.{bigquery_dataset}.{bigquery_table}`
                               WHERE DATE(period) BETWEEN
-                              DATE_SUB(DATE_SUB(CURRENT_DATE(), INTERVAL {num_months} MONTH),
+                              DATE_SUB(DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY),
                               INTERVAL {num_months} MONTH) AND DATE_SUB(CURRENT_DATE(),
-                              INTERVAL {num_months} MONTH);'''
+                              INTERVAL 1 DAY);'''
     reference_data_df = retrieve_data_bq(reference_data_query)
     pred_value = float(batch_monitoring_fill(current_data_df, reference_data_df))
     # If prediction drift value is > 0.1, send and email
