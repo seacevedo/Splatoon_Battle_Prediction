@@ -17,6 +17,7 @@ def load_battle_data_gcs(data_path: str) -> None:
 
 
 def upload_data_bigquery(file_name: str, data_path: str) -> None:
+    # Upload data to BigQuery from appropriate file
     gcp_credentials_block = GcpCredentials.load("gcp-creds")
 
     bigquery_load_cloud_storage(
@@ -29,6 +30,7 @@ def upload_data_bigquery(file_name: str, data_path: str) -> None:
 
 
 def retrieve_data_bq(query: str) -> pd.DataFrame:
+    # Query BigQuery Dataset
     gcp_credentials_block = GcpCredentials.load("gcp-creds")
     df = bigquery_query(
         query, gcp_credentials_block, to_dataframe=True, location='us-central1'
@@ -38,8 +40,8 @@ def retrieve_data_bq(query: str) -> pd.DataFrame:
 
 @task(name="Extract Splatoon Battle Data", log_prints=True)
 def extract_battle_data(data_path: str, num_months: int) -> None:
+    # Extract battle data from stat.ink from a specified number of months from the current date
     os.makedirs(data_path, exist_ok=True)
-    # yesterday_date = date.today() - timedelta(days=1)
     date_list = pd.date_range(
         start=date.today() - timedelta(days=30 * num_months + 1),
         end=date.today(),
@@ -70,7 +72,7 @@ def extract_battle_data(data_path: str, num_months: int) -> None:
 
 @task(name="Transform Splatoon Battle Data", log_prints=True)
 def transform_battle_data(data_path: str, num_months: int) -> str:
-    # all_filenames = [i for i in glob.glob(str(data_path) + '/*.{}'.format('csv'))]
+    # Extract features from existing battle data features
     date_list = pd.date_range(
         start=date.today() - timedelta(days=num_months * 30 + 1),
         end=date.today(),
