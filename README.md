@@ -95,19 +95,20 @@ Access the deployed model [here](https://app-run-service-gq2tu4do3a-uc.a.run.app
     *  `sudo apt-get update -y`
     *  `sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y`
     *  `sudo apt install docker-compose -y`
-11. Move into the `monitoring` directory using the `cd monitoring` command. Then run the docker containers using the command `sudo docker-compose -f docker_compose.yaml up -d`
-8. You should now have prefect installed. First run the command `prefect block register -m prefect_email` to add the appropriate blocks needed for the emailing functionality. Run the prefect server locally using the `prefect server start` command to monitor flows. This is needed to start the Prefect Server. In another terminal, `cd` into the `flows` directory and run the command `prefect deployment build main_flow.py:run_pipeline -n "splatoon-pipeline-deployment" --cron "0 0 1 */2 *" -a` to build the prefect deployment that runs every two months. Make sure you setup the following prefect blocks before running:
+11. Move into the `monitoring` directory using the `cd monitoring` command. Then run the docker containers using the command `sudo docker-compose -f docker_compose.yaml up -d`.
+12. Make sure you have created a Weights and Biases account (https://wandb.ai/login) and login into your account on the command line using the command `wandb login`. The command line will ask you to input the API Key that is associated with your account.
+13. You should now have prefect installed. First run the command `prefect block register -m prefect_email` to add the appropriate blocks needed for the emailing functionality. Run the prefect server locally using the `prefect server start` command to monitor flows. This is needed to start the Prefect Server. In another terminal, `cd` into the `flows` directory and run the command `prefect deployment build main_flow.py:run_pipeline -n "splatoon-pipeline-deployment" --cron "0 0 1 */2 *" -a` to build the prefect deployment that runs every two months. Make sure you setup the following prefect blocks before running:
 
-| Block Name       | Description  |
-| ------------- |:-------------:|
-| gcp-creds      | Block pertaining to your Google cloud credentials. You need the JSON keyfile you downloaded earlier to set it up | 
-| splatoon-battle-data   | Block pertaining to the bucket you wish to load the data into | 
-| db-username   | Block pertaining to the postgres database username you will use to record drift metrics |
-| db-password   | Block pertaining to the postgres database password you will use to record drift metrics |
-| email-server-credentials   | Email credentials needed to send an alert to a specified email in the event data drift occurs |
+| Block Name       | Description  | Block Type |
+| ------------- |:-------------:| ------------- |
+| gcp-creds      | Block pertaining to your Google cloud credentials. You need the JSON keyfile you downloaded earlier to set it up | GCP Credentials |
+| splatoon-battle-data   | Block pertaining to the bucket you wish to load the data into | GCS Bucket |
+| db-username   | Block pertaining to the postgres database username you will use to record drift metrics | Secret | 
+| db-password   | Block pertaining to the postgres database password you will use to record drift metrics | Secret |
+| email-server-credentials   | Email credentials needed to send an alert to a specified email in the event data drift occurs | Email Server Credentials |
   
-9. You can then run the deployment using the command `prefect deployment run run-pipeline/splatoon-pipeline-deployment --params '{"data_path":<data_path>, "wandb_project":<wandb_project>, "wandb_entity":<wandb_entity>, "artifact_path":<artifact_path>, "num_months":2, "gcp_project_id":<gcp_project_id>, "bigquery_dataset":<bigquery_dataset>, "bigquery_table":<bigquery_table>}'` as an example. The deployment should be scheduled.
-10. Your newly scheduled deployment can be run when initiating a prefect agent. Run the command `prefect agent start -q "default"` to run your deployment.
+14. You can then run the deployment using the command `prefect deployment run run-pipeline/splatoon-pipeline-deployment --params '{"data_path":"../data", "wandb_project":<wandb_project>, "wandb_entity":<wandb_entity>, "artifact_path":"./artifacts", "num_months":2, "gcp_project_id":<gcp_project_id>, "bigquery_dataset":<bigquery_dataset>, "bigquery_table":<bigquery_table>}'` as an example. The deployment should be scheduled.
+15. Your newly scheduled deployment can be run when initiating a prefect agent. Run the command `prefect agent start -q "default"` to run your deployment.
 
 ## Next Steps
 * Take advantage of systemd to run the agent when the VM starts up
